@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="conference," />
+  <meta name="keywords" content="paper," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="Spark summit 2017感觉这次比 east 居然要寒碜?  居然早上连个早餐的都没有.   给的袋子里面也全部是广告.  这次 spark summit 真的没啥太大的期待, saprk 这半年似乎版本变化不大.     KeyNoteA Deep Dive into Spark SQL’s Catalyst OptimizerHave already seen this talk d">
-<meta name="keywords" content="conference">
+<meta name="description" content="Continuous Queries over Data StreamsAbstractIn many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management">
+<meta name="keywords" content="paper">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spark Summit 2017">
-<meta property="og:url" content="http://jinxuan.github.io/2017/06/06/Spark summit 2017/index.html">
+<meta property="og:title" content="Continuous Queries over Data Streams">
+<meta property="og:url" content="http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/index.html">
 <meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
-<meta property="og:description" content="Spark summit 2017感觉这次比 east 居然要寒碜?  居然早上连个早餐的都没有.   给的袋子里面也全部是广告.  这次 spark summit 真的没啥太大的期待, saprk 这半年似乎版本变化不大.     KeyNoteA Deep Dive into Spark SQL’s Catalyst OptimizerHave already seen this talk d">
-<meta property="og:updated_time" content="2017-06-07T22:34:15.000Z">
+<meta property="og:description" content="Continuous Queries over Data StreamsAbstractIn many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management">
+<meta property="og:updated_time" content="2017-09-13T07:41:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark Summit 2017">
-<meta name="twitter:description" content="Spark summit 2017感觉这次比 east 居然要寒碜?  居然早上连个早餐的都没有.   给的袋子里面也全部是广告.  这次 spark summit 真的没啥太大的期待, saprk 这半年似乎版本变化不大.     KeyNoteA Deep Dive into Spark SQL’s Catalyst OptimizerHave already seen this talk d">
+<meta name="twitter:title" content="Continuous Queries over Data Streams">
+<meta name="twitter:description" content="Continuous Queries over Data StreamsAbstractIn many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://jinxuan.github.io/2017/06/06/Spark summit 2017/"/>
+  <link rel="canonical" href="http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/"/>
 
 
 
 
 
-  <title>Spark Summit 2017 | Jinxuan Wu's Blog</title>
+  <title>Continuous Queries over Data Streams | Jinxuan Wu's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jinxuan.github.io/2017/06/06/Spark summit 2017/">
+    <link itemprop="mainEntityOfPage" href="http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jinxuan Wu">
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spark Summit 2017</h1>
+          <h1 class="post-title" itemprop="name headline">Continuous Queries over Data Streams</h1>
         
 
         <div class="post-meta">
@@ -286,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T00:00:00-07:00">
-                2017-06-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T00:00:00-07:00">
+                2017-09-13
               </time>
             
 
@@ -321,31 +321,8 @@
       
 
       
-        <h1 id="Spark-summit-2017"><a href="#Spark-summit-2017" class="headerlink" title="Spark summit 2017"></a>Spark summit 2017</h1><p>感觉这次比 east 居然要寒碜?  居然早上连个早餐的都没有.   给的袋子里面也全部是广告. </p>
-<p>这次 spark summit 真的没啥太大的期待, saprk 这半年似乎版本变化不大.    </p>
-<h3 id="KeyNote"><a href="#KeyNote" class="headerlink" title="KeyNote"></a>KeyNote</h3><h4 id="A-Deep-Dive-into-Spark-SQL’s-Catalyst-Optimizer"><a href="#A-Deep-Dive-into-Spark-SQL’s-Catalyst-Optimizer" class="headerlink" title="A Deep Dive into Spark SQL’s Catalyst Optimizer"></a>A Deep Dive into Spark SQL’s Catalyst Optimizer</h4><p>Have already seen this talk during spark summit east. But still interesting to know we can define query plan ourselves. </p>
-<ul>
-<li>Todo: add code from slides later.</li>
-</ul>
-<h4 id="Lazy-Join-Optimizations-Without-Upfront-Statistics"><a href="#Lazy-Join-Optimizations-Without-Upfront-Statistics" class="headerlink" title="Lazy Join Optimizations Without Upfront Statistics"></a>Lazy Join Optimizations Without Upfront Statistics</h4><p>Project from UCLA, This talk is really interesting. It is mainly trying to solve two problems. 1. Unlike traditional RDMBS, Generate statics for query optimization is hard. 2. Correct where clause sequence in join so that we could reduce the shuffle. </p>
-<h4 id="The-Top-Five-Mistakes-Made-When-Writing-Streaming-Applications"><a href="#The-Top-Five-Mistakes-Made-When-Writing-Streaming-Applications" class="headerlink" title="The Top Five Mistakes Made When Writing Streaming Applications"></a>The Top Five Mistakes Made When Writing Streaming Applications</h4><p>An useful talk. Talk about many good practice about writing spark streaming. What is the good and bad situtation for running spark streaming?</p>
-<ul>
-<li>Need wait summarize until slides published </li>
-</ul>
-<h4 id="Building-Data-Product-Based-on-Apache-Spark-at-Airbnb"><a href="#Building-Data-Product-Based-on-Apache-Spark-at-Airbnb" class="headerlink" title="Building Data Product Based on Apache Spark at Airbnb"></a>Building Data Product Based on Apache Spark at Airbnb</h4><ol>
-<li>Unify batch processing and streaming processing.  Seems that this is really popular these days. </li>
-<li>Shared storge</li>
-</ol>
-<p>Question: </p>
-<ul>
-<li>Is it really a good idea to use spark streaming to calculate long window calculation?</li>
-</ul>
-<h4 id="Experiences-Migrating-Hive-Workload-to-SparkSQL"><a href="#Experiences-Migrating-Hive-Workload-to-SparkSQL" class="headerlink" title="Experiences Migrating Hive Workload to SparkSQL"></a>Experiences Migrating Hive Workload to SparkSQL</h4><p>Facebook is trying to migrate from Hive to Spark SQL to gain better performance. So that the user can wrote either HiveSQL or SparkSQL. This underlying engine will run and translate, estimate, or compare HiveQL to Spark SQL. I think this is too specific to facebook. They wouldn’t release how they do it and what performance gain they got.  But I’m still couldn’ imagine how big the data running in those pipeline at facebook.</p>
-<h4 id="Debugging-Big-Data-Analytics-in-Apache-Spark-with-BigDebug"><a href="#Debugging-Big-Data-Analytics-in-Apache-Spark-with-BigDebug" class="headerlink" title="Debugging Big Data Analytics in Apache Spark with BigDebug"></a>Debugging Big Data Analytics in Apache Spark with BigDebug</h4><p>Another research project from UCLA. This enhance apache spark with debug features such as set break point, watch point. And able to write function to change error input to midiate crash. They try to finish this to Spark 2.1 and currently they don’t spark SQL support.</p>
-<p>I kind like this idea. But it is hard to use. Assume we’re running a complex pipeline. This stop and check strategy is kind  </p>
-<h4 id="Productive-Use-of-the-Apache-Spark-Prompt"><a href="#Productive-Use-of-the-Apache-Spark-Prompt" class="headerlink" title="Productive Use of the Apache Spark Prompt"></a>Productive Use of the Apache Spark Prompt</h4><p>Another talk about debug spark. The speaker from Mozilla shared some his thinking on debugging pattern. </p>
-<h4 id="Taking-Jupyter-Notebooks-and-Apache-Spark-to-the-Next-Level-PixieDust"><a href="#Taking-Jupyter-Notebooks-and-Apache-Spark-to-the-Next-Level-PixieDust" class="headerlink" title="Taking Jupyter Notebooks and Apache Spark to the Next Level PixieDust"></a>Taking Jupyter Notebooks and Apache Spark to the Next Level PixieDust</h4><p>Another spark from Jupyter Notebook.</p>
-
+        <h1 id="Continuous-Queries-over-Data-Streams"><a href="#Continuous-Queries-over-Data-Streams" class="headerlink" title="Continuous Queries over Data Streams"></a>Continuous Queries over Data Streams</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>In many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management need to be re- considered in the presence of data streams, offering a new research direction for the database community. In this pa- per we focus primarily on the problem of query process- ing, specically on how to dene and evaluate continuous queries over data streams.   We address semantic issues as well as efciency concerns. Our main contributions are threefold. First, we specify a general and exible architec- ture for query processing in the presence of data streams. Second, we use our basic architecture as a tool to clar- ify alternative semantics and processing techniques for continuous queries.   The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views. Finally, we map out research topics in the area of query processing over data streams, showing where pre- vious work is relevant and describing problems yet to be addressed.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2>
       
     </div>
 
@@ -374,7 +351,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/conference/" rel="tag"># conference</a>
+            <a href="/tags/paper/" rel="tag"># paper</a>
           
         </div>
       
@@ -387,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/01/SRM-715/" rel="next" title="SRM 715">
-                <i class="fa fa-chevron-left"></i> SRM 715
+              <a href="/2017/09/12/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -397,8 +374,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/07/pixiedust/" rel="prev" title="pixiedust">
-                pixiedust <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/13/Exploring big volume sensor data with Vroom/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +496,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-summit-2017"><span class="nav-number">1.</span> <span class="nav-text">Spark summit 2017</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#KeyNote"><span class="nav-number">1.0.1.</span> <span class="nav-text">KeyNote</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-Deep-Dive-into-Spark-SQL’s-Catalyst-Optimizer"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">A Deep Dive into Spark SQL’s Catalyst Optimizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lazy-Join-Optimizations-Without-Upfront-Statistics"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">Lazy Join Optimizations Without Upfront Statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Top-Five-Mistakes-Made-When-Writing-Streaming-Applications"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">The Top Five Mistakes Made When Writing Streaming Applications</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Building-Data-Product-Based-on-Apache-Spark-at-Airbnb"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">Building Data Product Based on Apache Spark at Airbnb</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Experiences-Migrating-Hive-Workload-to-SparkSQL"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">Experiences Migrating Hive Workload to SparkSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debugging-Big-Data-Analytics-in-Apache-Spark-with-BigDebug"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">Debugging Big Data Analytics in Apache Spark with BigDebug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Productive-Use-of-the-Apache-Spark-Prompt"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">Productive Use of the Apache Spark Prompt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Taking-Jupyter-Notebooks-and-Apache-Spark-to-the-Next-Level-PixieDust"><span class="nav-number">1.0.1.8.</span> <span class="nav-text">Taking Jupyter Notebooks and Apache Spark to the Next Level PixieDust</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Continuous-Queries-over-Data-Streams"><span class="nav-number">1.</span> <span class="nav-text">Continuous Queries over Data Streams</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.2.</span> <span class="nav-text">Introduction</span></a></li></ol></li></ol></div>
             
 
           </div>

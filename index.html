@@ -254,6 +254,657 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jinxuan.github.io/2017/09/13/Exploring big volume sensor data with Vroom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jinxuan Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jinxuan Wu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/13/Exploring big volume sensor data with Vroom/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T00:38:45-07:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Exploring-big-volume-sensor-data-with-Vroom"><a href="#Exploring-big-volume-sensor-data-with-Vroom" class="headerlink" title="Exploring big volume sensor data with Vroom"></a>Exploring big volume sensor data with Vroom</h1><h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments:"></a>Comments:</h2><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p> State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of   view   as   well   as   heavy   computation   to   extract   features from scenes.   In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases.  Vroom combines   domain   specic   properties   of   AV   datasets   with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p>
+<p> ##Introduction</p>
+<ul>
+<li><p>AV generate from high-resolution cameras, lidar and GPS at about  10 MBps.</p>
+<h4 id="Queries"><a href="#Queries" class="headerlink" title="Queries:"></a>Queries:</h4></li>
+<li>Q1   Compute basic statistics on recent trips such as data<br> rates by sensor and location coverage.</li>
+<li>Q2 [building   3D maps] Retrieve all forward-facing video frames of the corner of Vassar and Main St.   in Cambridge, MA., ordered clockwise.</li>
+<li>Q3 [ preparing labeled training]   Retrieve lidar and video readings for all cameras in the vehicle,   for  intervals  when  any  vehicle  camera  frame shows a bicycle.   Group the data by trip, and order it by timestamp within each trip.</li>
+<li>Q4 [ preparing labeled training]   Retrieve all sensor readings in the minute leading up to an interesting event, such as a possible near miss. e.g., where a vehicle’s CAN bus records a sudden brake or sharp steer, group the readings by trip and order them by timestamp within each trip.</li>
+</ul>
+<h4 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h4><ul>
+<li>Computational intensity of UDFs: such as deep learning based classification</li>
+<li>Big   volumes: ad-hoc query on large historical data</li>
+<li>Many   features   of   interest:  </li>
+<li>Interface and storage issues:</li>
+</ul>
+<h4 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h4><ul>
+<li>Sophisticated feature precomputation and indexing:</li>
+<li>Synthesizing   cheap   predicates:</li>
+<li>Memoizing:</li>
+<li>Storage clustering, based on the workload</li>
+<li>Multi-query   optimization:</li>
+<li>[to read] polystore data model</li>
+</ul>
+<h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jinxuan Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jinxuan Wu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/13/Continuous Queries over Data Streams/" itemprop="url">Continuous Queries over Data Streams</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T00:00:00-07:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Continuous-Queries-over-Data-Streams"><a href="#Continuous-Queries-over-Data-Streams" class="headerlink" title="Continuous Queries over Data Streams"></a>Continuous Queries over Data Streams</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>In many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management need to be re- considered in the presence of data streams, offering a new research direction for the database community. In this pa- per we focus primarily on the problem of query process- ing, specically on how to dene and evaluate continuous queries over data streams.   We address semantic issues as well as efciency concerns. Our main contributions are threefold. First, we specify a general and exible architec- ture for query processing in the presence of data streams. Second, we use our basic architecture as a tool to clar- ify alternative semantics and processing techniques for continuous queries.   The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views. Finally, we map out research topics in the area of query processing over data streams, showing where pre- vious work is relevant and describing problems yet to be addressed.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jinxuan.github.io/2017/09/12/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jinxuan Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jinxuan Wu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/12/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T20:50:21-07:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><h1 id="Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight"><a href="#Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight" class="headerlink" title="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight"></a>Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>geostreaming, StreamLight, Spatial Libraries</li>
+</ul>
+<h3 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h3><ul>
+<li>port geospatial libraries to the streaming domain with the incremental single-pass processing model in mind.</li>
+<li>make decision based on the continuous query result.</li>
+</ul>
+<h3 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h3><ul>
+<li>integrate Microsoft SQL Server Spatial Libraries into Microsoft StreamInsight to support the online processing of geo-stream data. Special attention is given to incrementally evaluate spatial operations.</li>
+<li>Implement an online analytical refinement and prediction layer that enables querying of historical (archived) stream data.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="StreamInsight"><a href="#StreamInsight" class="headerlink" title="StreamInsight"></a>StreamInsight</h3><ul>
+<li>Input Adapter: continuously listens on a TCP port for the streaming data. Once a packet of data is retrieved, the corresponding events are created and enqueued to the streaming engine. </li>
+<li>Streaming Engine: Runs pre-defined queries on input events, Also did query fusing, operator sharing, and query and stream partitioning. StreamInsight provides user-defined aggregate (UDA), user- defined operator (UDO), and user-defined function (UDF) facilities. </li>
+<li><p>Output Adapter</p>
+<h3 id="Online-Analytical-Refinement-and-Prediction-Layer"><a href="#Online-Analytical-Refinement-and-Prediction-Layer" class="headerlink" title="Online Analytical Refinement and Prediction Layer"></a>Online Analytical Refinement and Prediction Layer</h3></li>
+<li>Use PCA to implement a historical data sketches.</li>
+<li>more correlated is the streaming data, the less number of components are needed to create accurate</li>
+<li><p>. Given efficient access to historical data through UDAs, one can accomplish the following refinement and prediction functions.</p>
+<p>Refinement functions</p>
+</li>
+<li>Substituting missing streaming data</li>
+<li>Smoothing noisy input data</li>
+<li><p>Detection of anomalies</p>
+<p>Prediction functions</p>
+</li>
+<li>Predicting near future trends</li>
+<li><p>Responding to anomalies</p>
+<h3 id="Spatial-Cartridge"><a href="#Spatial-Cartridge" class="headerlink" title="Spatial Cartridge"></a>Spatial Cartridge</h3></li>
+<li>For stream join relational table</li>
+<li>Spatial cartridge extends the capabilities of StreamInsight <ul>
+<li>Determining the way StreamInsight retrieves and interprets the underlying spatial information (e.g., road networks) by customizing the spatial operators and idexes for efficient access to large spatial data. This way users can easily implement the functions or interfaces that have the specialized behavior required in the geostreaming applications.</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jinxuan.github.io/2017/09/12/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jinxuan Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jinxuan Wu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/12/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T08:31:41-07:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams"><a href="#SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams" class="headerlink" title="SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams"></a>SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p> This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for   continuous and on-line evaluation of concurrent continuous spatio- temporal   queries   over   data   streams.   Incoming   spatio- temporal data streams are processed in-memory against a set of outstanding continuous queries. The SOLE algo- rithm utilizes the scarce memory resource eciently by keeping track of only the signicant objects. In-memory stored objects are expired (i.e., dropped) from memory once they become insignicant. SOLE is a scalable algo- rithm where all the continuous outstanding queries share the   same   buer   pool.   In   addition,   SOLE   is   presented as   a   spatio-temporal   join   between   two   input   streams, a   stream   of   spatio-temporal   objects   and   a   stream   of spatio-temporal queries. To cope with intervals of high arrival rates of objects and/or queries, SOLE utilizes a load-shedding approach where some of the stored objects are dropped from memory. SOLE is implemented   as a pipelined query operator that can be combined with tra- ditional query operators in a query execution plan to sup- port a wide variety of continuous queries. Performance experiments based on a real implementation of SOLE in- side a prototype of a data stream management system show the scalability and eciency of SOLE in highly dynamic environments.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>The high arrival rates of spatio-temporal data streams along with its massive data sizes</li>
+<li>Exiting techniques for spatio- temporal databases rely mainly on the basic assumption that all incoming spatio-temporal data can be stored on disk. Thus, continuous query processing techniques aim to utilize the disk storage to produce in- cremental results of  continuous queries.</li>
+<li>combine traditional spatio-temporal query processors and data   stream   query   processors.</li>
+<li>process uncertainty areas using aconservative caching technique.</li>
+<li>load shedding schemes to support larger numbers of continuous queries</li>
+</ul>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><ul>
+<li>Spatio-temporal Databases</li>
+<li>Existing algorithm materializing incoming spatio-temporal data in disk-based index structures</li>
+<li><p>Memory-based   data   structures   have   been   proposed in to deal with reasonable size of data that can  fit   in   memory, but   it   is   not   scalable  to   large data sizes or streaming environments. (to add)</p>
+</li>
+<li><p>Data Stream Management Systems</p>
+</li>
+<li>the spatial and temporal properties of data streams and/or continuous queries are overlooked by existing stream management prototypes</li>
+<li>Scalable   execution   of   continuous   queries   in   tradi- tional data streams aims to either detect common subex- pressions or share  resources at   the  operator level. The main idea is to either add a special operator to the query plan to regu- late the load by discarding unimportant incoming tuples or dynamically adjust the window size and time granu- larity at runtime.</li>
+</ul>
+<h2 id="Basic-Concepts-in-SOLE"><a href="#Basic-Concepts-in-SOLE" class="headerlink" title="Basic Concepts in SOLE"></a>Basic Concepts in SOLE</h2><h3 id="Input-Output"><a href="#Input-Output" class="headerlink" title="Input Output"></a>Input Output</h3><ul>
+<li>Input Model. The inputs to SOLE are two streams: 1. A spaial temporal stream 2. A stream of continuous queries</li>
+<li>Output Model. avoid continuous reevaluation of continuous spatio-<br> temporal queries, updates the query re- sult by computing and sending only updates of the pre- viously reported answer. Positive updates,  negative update</li>
+</ul>
+<h3 id="Supporting-Various-Query-Types"><a href="#Supporting-Various-Query-Types" class="headerlink" title="Supporting Various Query Types"></a>Supporting Various Query Types</h3><ul>
+<li>Moving   Queries.</li>
+<li>kNN   Queries, (Use variable circle region size)</li>
+</ul>
+<h3 id="Pipelined-Operator"><a href="#Pipelined-Operator" class="headerlink" title="Pipelined Operator"></a>Pipelined Operator</h3><ul>
+<li>physical pipelined operator that can interact with traditional query operators in a large pipelined query plan.</li>
+</ul>
+<h2 id="4-Execution-of-Single-Continuous-Queries-in-SOLE"><a href="#4-Execution-of-Single-Continuous-Queries-in-SOLE" class="headerlink" title="4 Execution of Single Continuous Queries in SOLE"></a>4 Execution of Single Continuous Queries in SOLE</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jinxuan.github.io/2017/06/07/pixiedust/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jinxuan Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jinxuan Wu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/07/pixiedust/" itemprop="url">pixiedust</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-07T15:22:55-07:00">
+                2017-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Data available at <a href="https://datasf.org/opendata/" target="_blank" rel="external">SF Open data</a>.</p>
+<p>Tutorial slides: <a href="https://www.slideshare.net/DTAIEB/data-science-bootcamp-with-pixie-dust?qid=9dcabfc9-8271-4b86-8b6a-a0d29f4a465b&amp;v=&amp;b=&amp;from_search=1" target="_blank" rel="external">slidesshare</a></p>
+<p>Notebook: <a href="https://github.com/DTAIEB/demos/blob/master/Spark%20Summit%20PixieDust%20bootcamp/Spark%20Summit%20PixieDust%20Bootcamp%20Master.ipynb" target="_blank" rel="external">github</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://jinxuan.github.io/2017/06/06/Spark summit 2017/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -341,6 +992,11 @@
 <ul>
 <li>Is it really a good idea to use spark streaming to calculate long window calculation?</li>
 </ul>
+<h4 id="Experiences-Migrating-Hive-Workload-to-SparkSQL"><a href="#Experiences-Migrating-Hive-Workload-to-SparkSQL" class="headerlink" title="Experiences Migrating Hive Workload to SparkSQL"></a>Experiences Migrating Hive Workload to SparkSQL</h4><p>Facebook is trying to migrate from Hive to Spark SQL to gain better performance. So that the user can wrote either HiveSQL or SparkSQL. This underlying engine will run and translate, estimate, or compare HiveQL to Spark SQL. I think this is too specific to facebook. They wouldn’t release how they do it and what performance gain they got.  But I’m still couldn’ imagine how big the data running in those pipeline at facebook.</p>
+<h4 id="Debugging-Big-Data-Analytics-in-Apache-Spark-with-BigDebug"><a href="#Debugging-Big-Data-Analytics-in-Apache-Spark-with-BigDebug" class="headerlink" title="Debugging Big Data Analytics in Apache Spark with BigDebug"></a>Debugging Big Data Analytics in Apache Spark with BigDebug</h4><p>Another research project from UCLA. This enhance apache spark with debug features such as set break point, watch point. And able to write function to change error input to midiate crash. They try to finish this to Spark 2.1 and currently they don’t spark SQL support.</p>
+<p>I kind like this idea. But it is hard to use. Assume we’re running a complex pipeline. This stop and check strategy is kind  </p>
+<h4 id="Productive-Use-of-the-Apache-Spark-Prompt"><a href="#Productive-Use-of-the-Apache-Spark-Prompt" class="headerlink" title="Productive Use of the Apache Spark Prompt"></a>Productive Use of the Apache Spark Prompt</h4><p>Another talk about debug spark. The speaker from Mozilla shared some his thinking on debugging pattern. </p>
+<h4 id="Taking-Jupyter-Notebooks-and-Apache-Spark-to-the-Next-Level-PixieDust"><a href="#Taking-Jupyter-Notebooks-and-Apache-Spark-to-the-Next-Level-PixieDust" class="headerlink" title="Taking Jupyter Notebooks and Apache Spark to the Next Level PixieDust"></a>Taking Jupyter Notebooks and Apache Spark to the Next Level PixieDust</h4><p>Another spark from Jupyter Notebook.</p>
 
           
         
@@ -539,7 +1195,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -552,7 +1208,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
