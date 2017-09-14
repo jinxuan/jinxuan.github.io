@@ -35,6 +35,24 @@
   </entry>
   
   <entry>
+    <title>SOLE Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams</title>
+    <link href="http://jinxuan.github.io/2017/09/13/SOLE:%20Scalable%20On-Line%20Execution%20of%20Continuous%20Queries%20on%20Spatio-temporal%20Data%20Streams/"/>
+    <id>http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/</id>
+    <published>2017-09-14T05:32:28.000Z</published>
+    <updated>2017-09-14T06:12:25.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams&quot;&gt;&lt;a href=&quot;#SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams&quot; class=&quot;headerlink&quot; title=&quot;SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams&quot;&gt;&lt;/a&gt;SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt; This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for   continuous and on-line evaluation of concurrent continuous spatio- temporal   queries   over   data   streams.   Incoming   spatio- temporal data streams are processed in-memory against a set of outstanding continuous queries. The SOLE algo- rithm utilizes the scarce memory resource eciently by keeping track of only the signicant objects. In-memory stored objects are expired (i.e., dropped) from memory once they become insignicant. SOLE is a scalable algo- rithm where all the continuous outstanding queries share the   same   buer   pool.   In   addition,   SOLE   is   presented as   a   spatio-temporal   join   between   two   input   streams, a   stream   of   spatio-temporal   objects   and   a   stream   of spatio-temporal queries. To cope with intervals of high arrival rates of objects and/or queries, SOLE utilizes a load-shedding approach where some of the stored objects are dropped from memory. SOLE is implemented   as a pipelined query operator that can be combined with tra- ditional query operators in a query execution plan to sup- port a wide variety of continuous queries. Performance experiments based on a real implementation of SOLE in- side a prototype of a data stream management system show the scalability and eciency of SOLE in highly dynamic environments.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</title>
     <link href="http://jinxuan.github.io/2017/09/13/Geospatial%20Stream%20Query%20Processing%20using%20Microsoft%20SQL%20Server%20StreamInsight/"/>
     <id>http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/</id>
@@ -62,24 +80,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Exploring-big-volume-sensor-data-with-Vroom&quot;&gt;&lt;a href=&quot;#Exploring-big-volume-sensor-data-with-Vroom&quot; class=&quot;headerlink&quot; title=&quot;Exploring big volume sensor data with Vroom&quot;&gt;&lt;/a&gt;Exploring big volume sensor data with Vroom&lt;/h1&gt;&lt;h2 id=&quot;Comments&quot;&gt;&lt;a href=&quot;#Comments&quot; class=&quot;headerlink&quot; title=&quot;Comments:&quot;&gt;&lt;/a&gt;Comments:&lt;/h2&gt;&lt;h2 id=&quot;ABSTRACT&quot;&gt;&lt;a href=&quot;#ABSTRACT&quot; class=&quot;headerlink&quot; title=&quot;ABSTRACT&quot;&gt;&lt;/a&gt;ABSTRACT&lt;/h2&gt;&lt;p&gt; State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of view as well as heavy computation to extract features from scenes. In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases. Vroom combines domain specic properties of AV datasets with selective indexing and multi-query optimization to address challenges posed by AV sensor data.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SOLE Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams</title>
-    <link href="http://jinxuan.github.io/2017/09/13/SOLE:%20Scalable%20On-Line%20Execution%20of%20Continuous%20Queries%20on%20Spatio-temporal%20Data%20Streams/"/>
-    <id>http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/</id>
-    <published>2017-09-14T05:32:28.000Z</published>
-    <updated>2017-09-14T06:12:25.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams&quot;&gt;&lt;a href=&quot;#SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams&quot; class=&quot;headerlink&quot; title=&quot;SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams&quot;&gt;&lt;/a&gt;SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt; This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for   continuous and on-line evaluation of concurrent continuous spatio- temporal   queries   over   data   streams.   Incoming   spatio- temporal data streams are processed in-memory against a set of outstanding continuous queries. The SOLE algo- rithm utilizes the scarce memory resource eciently by keeping track of only the signicant objects. In-memory stored objects are expired (i.e., dropped) from memory once they become insignicant. SOLE is a scalable algo- rithm where all the continuous outstanding queries share the   same   buer   pool.   In   addition,   SOLE   is   presented as   a   spatio-temporal   join   between   two   input   streams, a   stream   of   spatio-temporal   objects   and   a   stream   of spatio-temporal queries. To cope with intervals of high arrival rates of objects and/or queries, SOLE utilizes a load-shedding approach where some of the stored objects are dropped from memory. SOLE is implemented   as a pipelined query operator that can be combined with tra- ditional query operators in a query execution plan to sup- port a wide variety of continuous queries. Performance experiments based on a real implementation of SOLE in- side a prototype of a data stream management system show the scalability and eciency of SOLE in highly dynamic environments.&lt;/p&gt;
     
     </summary>
     
