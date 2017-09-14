@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Exploring big volume sensor data with Vroom | Jinxuan Wu&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurpr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exploring big volume sensor data with Vroom">
+<meta property="og:url" content="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/index.html">
+<meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
+<meta property="og:description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurpr">
+<meta property="og:updated_time" content="2017-09-14T06:14:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exploring big volume sensor data with Vroom">
+<meta name="twitter:description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurpr">
+    
+
+    
+        <link rel="alternate" href="/" title="Jinxuan Wu&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-53110949-4# enter the tracking ID for your Google Analytics', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jinxuan Wu&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Jinxuan Wu (Jim)</h2>
+            <h3 id="title">SDE &amp; Ph.D</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Phoenix, AZ</span>
+            <a id="follow" target="_blank" href="https://github.com/jinxuan/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                7
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                2
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/jinxuan" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/jinxuanwu1" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Exploring-big-volume-sensor-data-with-Vroom" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Exploring big volume sensor data with Vroom
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/">
+            <time datetime="2017-09-14T05:32:28.000Z" itemprop="datePublished">2017-09-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/paper-reading/">paper reading</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Exploring-big-volume-sensor-data-with-Vroom"><a href="#Exploring-big-volume-sensor-data-with-Vroom" class="headerlink" title="Exploring big volume sensor data with Vroom"></a>Exploring big volume sensor data with Vroom</h1><h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments:"></a>Comments:</h2><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p> State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of view as well as heavy computation to extract features from scenes. In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases. Vroom combines domain specic properties of AV datasets with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p>
+<a id="more"></a>
+<p> ##Introduction</p>
+<ul>
+<li><p>AV generate from high-resolution cameras, lidar and GPS at about 10 MBps.</p>
+<h4 id="Queries"><a href="#Queries" class="headerlink" title="Queries:"></a>Queries:</h4></li>
+<li>Q1 Compute basic statistics on recent trips such as data<br>rates by sensor and location coverage.</li>
+<li>Q2 [building 3D maps] Retrieve all forward-facing video frames of the corner of Vassar and Main St. in Cambridge, MA., ordered clockwise.</li>
+<li>Q3 [ preparing labeled training] Retrieve lidar and video readings for all cameras in the vehicle, for intervals when any vehicle camera frame shows a bicycle. Group the data by trip, and order it by timestamp within each trip.</li>
+<li>Q4 [ preparing labeled training] Retrieve all sensor readings in the minute leading up to an interesting event, such as a possible near miss. e.g., where a vehicle’s CAN bus records a sudden brake or sharp steer, group the readings by trip and order them by timestamp within each trip.</li>
+</ul>
+<h4 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h4><ul>
+<li>Computational intensity of UDFs: such as deep learning based classification</li>
+<li>Big volumes: ad-hoc query on large historical data</li>
+<li>Many features of interest: </li>
+<li>Interface and storage issues:</li>
+</ul>
+<h4 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h4><ul>
+<li>Sophisticated feature precomputation and indexing:</li>
+<li>Synthesizing cheap predicates:</li>
+<li>Memoizing:</li>
+<li>Storage clustering, based on the workload</li>
+<li>Multi-query optimization:</li>
+<li>[to read] polystore data model</li>
+</ul>
+<h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2><h3 id="Query-Interface"><a href="#Query-Interface" class="headerlink" title="Query Interface"></a>Query Interface</h3><p>Q1:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> sensor_id, sensor_type</div><div class="line"> <span class="keyword">sum</span>(byte_size(sensor_reading)) <span class="keyword">as</span> data_volume,</div><div class="line"> data_volume/trip_duration <span class="keyword">as</span> data_rate,</div><div class="line"> <span class="keyword">count</span>(*)/trip_duration <span class="keyword">as</span> frequency</div><div class="line"> <span class="keyword">from</span> raw_data</div><div class="line"> <span class="keyword">where</span> time.now - trip_start &lt; <span class="number">6</span> <span class="keyword">days</span></div><div class="line"> <span class="keyword">group</span> <span class="keyword">by</span> trip_id, sensor_id</div><div class="line"> <span class="keyword">order</span> <span class="keyword">by</span> trip_id, data_rate <span class="keyword">desc</span></div></pre></td></tr></table></figure></p>
+<p>Q2:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let vassar_and_main = lat_lon_height(42.3628,-71.0915,7) IN</div><div class="line"><span class="keyword">SELECT</span> sensor_reading</div><div class="line"><span class="keyword">FROM</span> raw_data</div><div class="line"><span class="keyword">WHERE</span> sensor_reading.type <span class="keyword">IN</span> (VideoFrame)</div><div class="line"> <span class="keyword">AND</span> let sensor_pose = pose_estimate(sensor_id, <span class="keyword">TIMESTAMP</span>) <span class="keyword">IN</span> distance(sensor_pose, vassar_and_main) &lt; <span class="number">20</span></div><div class="line"> <span class="keyword">AND</span> angle(sensor_pose.x_axis, line(sensor_pose, vassar_and_main)) &lt; <span class="number">30</span></div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> angle(line(sensor_pose, std.east), line(sensor_pose, vassar_and_main))</div></pre></td></tr></table></figure></p>
+<p>Q3:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let bike_segments =</div><div class="line"><span class="keyword">SELECT</span> trip_id, <span class="keyword">TIMESTAMP</span> - <span class="number">5</span> <span class="keyword">AS</span> t_start, <span class="keyword">TIMESTAMP</span> + <span class="number">5</span> <span class="keyword">AS</span> t_end</div><div class="line"><span class="keyword">FROM</span> raw_data</div><div class="line"><span class="keyword">WHERE</span> sensor_reading.type <span class="keyword">IN</span> (VideoFrame)</div><div class="line"> <span class="keyword">AND</span> bike_detection_udf(sensor_reading) &gt; <span class="number">0.9</span> <span class="keyword">IN</span></div><div class="line"> <span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">TIMESTAMP</span>, trip_id,</div><div class="line"> sensor_reading</div><div class="line"> <span class="keyword">FROM</span> raw_data,</div><div class="line"> bike_segments <span class="keyword">WHERE</span> sensor_reading.type (PointCloud, Video)</div><div class="line"> <span class="keyword">AND</span> raw_data.trip_id = bike_segments.trip_id</div><div class="line"> <span class="keyword">AND</span> raw_data.TIMESTAMP <span class="keyword">BETWEEN</span> (t_start,</div><div class="line"> t_end) <span class="keyword">AND</span></div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> trip_id, <span class="keyword">TIMESTAMP</span></div></pre></td></tr></table></figure></p>
+<h3 id="Storage-engines"><a href="#Storage-engines" class="headerlink" title="Storage engines"></a>Storage engines</h3><p>Our demonstration prototype is implemented by combining a relational engine for metadata storage and file system based blob management.</p>
+<h3 id="Query-processor"><a href="#Query-processor" class="headerlink" title="Query processor"></a>Query processor</h3><ul>
+<li>For   Query   Q1,   a   per   trip   aggregate   triggers   checks   for existing   per-trip   memoized   computations.</li>
+<li>For Query  Q2  explicitly uses geometric builtins referring to sensor points of view,  geometric predicates involved and bound which parts   of   trip   trajectories   to   skip   completely   look   at.   We leverage existing trajectory indexing work for storage.<h1 id="For-Query-q3"><a href="#For-Query-q3" class="headerlink" title="For Query q3:"></a>For Query q3:</h1></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/" data-id="cj7k1tman0004fkta0r09shvo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/13/Continuous Queries over Data Streams/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Continuous Queries over Data Streams
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Jinxuan Wu<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/';
+        
+        this.page.identifier = 'Exploring-big-volume-sensor-data-with-Vroom';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'jinxuan# enter disqus shortname here' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

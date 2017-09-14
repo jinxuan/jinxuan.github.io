@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>SOLE Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams | Jinxuan Wu&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data StreamsAbstract This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SOLE Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams">
+<meta property="og:url" content="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/index.html">
+<meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
+<meta property="og:description" content="SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data StreamsAbstract This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for">
+<meta property="og:updated_time" content="2017-09-14T06:12:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SOLE Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams">
+<meta name="twitter:description" content="SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data StreamsAbstract This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for">
+    
+
+    
+        <link rel="alternate" href="/" title="Jinxuan Wu&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-53110949-4# enter the tracking ID for your Google Analytics', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jinxuan Wu&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Jinxuan Wu (Jim)</h2>
+            <h3 id="title">SDE &amp; Ph.D</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Phoenix, AZ</span>
+            <a id="follow" target="_blank" href="https://github.com/jinxuan/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                7
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                2
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/jinxuan" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/jinxuanwu1" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            SOLE Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/">
+            <time datetime="2017-09-14T05:32:28.000Z" itemprop="datePublished">2017-09-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/paper-reading/">paper reading</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams"><a href="#SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams" class="headerlink" title="SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams"></a>SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p> This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for   continuous and on-line evaluation of concurrent continuous spatio- temporal   queries   over   data   streams.   Incoming   spatio- temporal data streams are processed in-memory against a set of outstanding continuous queries. The SOLE algo- rithm utilizes the scarce memory resource eciently by keeping track of only the signicant objects. In-memory stored objects are expired (i.e., dropped) from memory once they become insignicant. SOLE is a scalable algo- rithm where all the continuous outstanding queries share the   same   buer   pool.   In   addition,   SOLE   is   presented as   a   spatio-temporal   join   between   two   input   streams, a   stream   of   spatio-temporal   objects   and   a   stream   of spatio-temporal queries. To cope with intervals of high arrival rates of objects and/or queries, SOLE utilizes a load-shedding approach where some of the stored objects are dropped from memory. SOLE is implemented   as a pipelined query operator that can be combined with tra- ditional query operators in a query execution plan to sup- port a wide variety of continuous queries. Performance experiments based on a real implementation of SOLE in- side a prototype of a data stream management system show the scalability and eciency of SOLE in highly dynamic environments.</p>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>The high arrival rates of spatio-temporal data streams along with its massive data sizes</li>
+<li>Exiting techniques for spatio- temporal databases rely mainly on the basic assumption that all incoming spatio-temporal data can be stored on disk. Thus, continuous query processing techniques aim to utilize the disk storage to produce in- cremental results of  continuous queries.</li>
+<li>combine traditional spatio-temporal query processors and data   stream   query   processors.</li>
+<li>process uncertainty areas using aconservative caching technique.</li>
+<li>load shedding schemes to support larger numbers of continuous queries</li>
+</ul>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><ul>
+<li>Spatio-temporal Databases</li>
+<li>Existing algorithm materializing incoming spatio-temporal data in disk-based index structures</li>
+<li><p>Memory-based   data   structures   have   been   proposed in to deal with reasonable size of data that can  fit   in   memory, but   it   is   not   scalable  to   large data sizes or streaming environments. (to add)</p>
+</li>
+<li><p>Data Stream Management Systems</p>
+</li>
+<li>the spatial and temporal properties of data streams and/or continuous queries are overlooked by existing stream management prototypes</li>
+<li>Scalable   execution   of   continuous   queries   in   tradi- tional data streams aims to either detect common subex- pressions or share  resources at   the  operator level. The main idea is to either add a special operator to the query plan to regu- late the load by discarding unimportant incoming tuples or dynamically adjust the window size and time granu- larity at runtime.</li>
+</ul>
+<h2 id="Basic-Concepts-in-SOLE"><a href="#Basic-Concepts-in-SOLE" class="headerlink" title="Basic Concepts in SOLE"></a>Basic Concepts in SOLE</h2><h3 id="Input-Output"><a href="#Input-Output" class="headerlink" title="Input Output"></a>Input Output</h3><ul>
+<li>Input Model. The inputs to SOLE are two streams: 1. A spaial temporal stream 2. A stream of continuous queries</li>
+<li>Output Model. avoid continuous reevaluation of continuous spatio-<br> temporal queries, updates the query re- sult by computing and sending only updates of the pre- viously reported answer. Positive updates,  negative update</li>
+</ul>
+<h3 id="Supporting-Various-Query-Types"><a href="#Supporting-Various-Query-Types" class="headerlink" title="Supporting Various Query Types"></a>Supporting Various Query Types</h3><ul>
+<li>Moving   Queries.</li>
+<li>kNN   Queries, (Use variable circle region size)</li>
+</ul>
+<h3 id="Pipelined-Operator"><a href="#Pipelined-Operator" class="headerlink" title="Pipelined Operator"></a>Pipelined Operator</h3><ul>
+<li>physical pipelined operator that can interact with traditional query operators in a large pipelined query plan.</li>
+</ul>
+<h2 id="4-Execution-of-Single-Continuous-Queries-in-SOLE"><a href="#4-Execution-of-Single-Continuous-Queries-in-SOLE" class="headerlink" title="4 Execution of Single Continuous Queries in SOLE"></a>4 Execution of Single Continuous Queries in SOLE</h2>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/" data-id="cj7k1tmar0006fktabqj0dz86" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/06/07/pixiedust/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">pixiedust</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Jinxuan Wu<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/';
+        
+        this.page.identifier = 'SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'jinxuan# enter disqus shortname here' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
