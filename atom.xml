@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;Demo-Building-Connected-Car-Applications-on-Top-of-the-World-Wide-Streams-Platform&quot;&gt;&lt;a
+          &lt;h1 id=&quot;demo-building-connected-car-applications-on-top-of-the-world-wide-streams-platform&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot;
         
       
     
@@ -50,7 +50,8 @@
     <summary type="html">
     
       &lt;p&gt;#Tutorial: Reflections on Almost Two Decades of Research into Stream Processing&lt;/p&gt;
-&lt;p&gt;This tutorial reflects on this research history by highlighting&lt;br&gt; a number of trends and best practices that can be identied in hindsight. It also enumerates a list of directions for future research in stream processing.&lt;/p&gt;
+&lt;p&gt;This tutorial reflects on this research history by highlighting&lt;br&gt;
+a number of trends and best practices that can be identied in hindsight. It also enumerates a list of directions for future research in stream processing.&lt;/p&gt;
     
     </summary>
     
@@ -68,7 +69,9 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Continuous-Queries-over-Data-Streams&quot;&gt;&lt;a href=&quot;#Continuous-Queries-over-Data-Streams&quot; class=&quot;headerlink&quot; title=&quot;Continuous Queries over Data Streams&quot;&gt;&lt;/a&gt;Continuous Queries over Data Streams&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt;In many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management need to be re- considered in the presence of data streams, offering a new research direction for the database community. In this pa- per we focus primarily on the problem of query process- ing, specically on how to dene and evaluate continuous queries over data streams.   We address semantic issues as well as efciency concerns. Our main contributions are threefold. First, we specify a general and exible architec- ture for query processing in the presence of data streams. Second, we use our basic architecture as a tool to clar- ify alternative semantics and processing techniques for continuous queries.   The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views. Finally, we map out research topics in the area of query processing over data streams, showing where pre- vious work is relevant and describing problems yet to be addressed.&lt;/p&gt;
+      &lt;h1 id=&quot;continuous-queries-over-data-streams&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#continuous-queries-over-data-streams&quot;&gt;&lt;/a&gt; Continuous Queries over Data Streams&lt;/h1&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#abstract&quot;&gt;&lt;/a&gt; Abstract&lt;/h2&gt;
+&lt;p&gt;In many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management need to be re- considered in the presence of data streams, offering a new research direction for the database community. In this pa- per we focus primarily on the problem of query process- ing, specically on how to dene and evaluate continuous queries over data streams.   We address semantic issues as well as efciency concerns. Our main contributions are threefold. First, we specify a general and exible architec- ture for query processing in the presence of data streams. Second, we use our basic architecture as a tool to clar- ify alternative semantics and processing techniques for continuous queries.   The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views. Finally, we map out research topics in the area of query processing over data streams, showing where pre- vious work is relevant and describing problems yet to be addressed.&lt;/p&gt;
     
     </summary>
     
@@ -86,25 +89,9 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight&quot;&gt;&lt;a href=&quot;#Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight&quot; class=&quot;headerlink&quot; title=&quot;Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&quot;&gt;&lt;/a&gt;Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt; Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Exploring big volume sensor data with Vroom</title>
-    <link href="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/"/>
-    <id>http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/</id>
-    <published>2017-09-14T05:32:28.000Z</published>
-    <updated>2017-09-14T06:14:54.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Exploring-big-volume-sensor-data-with-Vroom&quot;&gt;&lt;a href=&quot;#Exploring-big-volume-sensor-data-with-Vroom&quot; class=&quot;headerlink&quot; title=&quot;Exploring big volume sensor data with Vroom&quot;&gt;&lt;/a&gt;Exploring big volume sensor data with Vroom&lt;/h1&gt;&lt;h2 id=&quot;Comments&quot;&gt;&lt;a href=&quot;#Comments&quot; class=&quot;headerlink&quot; title=&quot;Comments:&quot;&gt;&lt;/a&gt;Comments:&lt;/h2&gt;&lt;h2 id=&quot;ABSTRACT&quot;&gt;&lt;a href=&quot;#ABSTRACT&quot; class=&quot;headerlink&quot; title=&quot;ABSTRACT&quot;&gt;&lt;/a&gt;ABSTRACT&lt;/h2&gt;&lt;p&gt; State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of view as well as heavy computation to extract features from scenes. In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases. Vroom combines domain specic properties of AV datasets with selective indexing and multi-query optimization to address challenges posed by AV sensor data.&lt;/p&gt;
+      &lt;h1 id=&quot;geospatial-stream-query-processing-using-microsoft-sql-server-streaminsight&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#geospatial-stream-query-processing-using-microsoft-sql-server-streaminsight&quot;&gt;&lt;/a&gt; Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&lt;/h1&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#abstract&quot;&gt;&lt;/a&gt; Abstract&lt;/h2&gt;
+&lt;p&gt;Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.&lt;/p&gt;
     
     </summary>
     
@@ -122,7 +109,30 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams&quot;&gt;&lt;a href=&quot;#SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams&quot; class=&quot;headerlink&quot; title=&quot;SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams&quot;&gt;&lt;/a&gt;SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt; This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for   continuous and on-line evaluation of concurrent continuous spatio- temporal   queries   over   data   streams.   Incoming   spatio- temporal data streams are processed in-memory against a set of outstanding continuous queries. The SOLE algo- rithm utilizes the scarce memory resource eciently by keeping track of only the signicant objects. In-memory stored objects are expired (i.e., dropped) from memory once they become insignicant. SOLE is a scalable algo- rithm where all the continuous outstanding queries share the   same   buer   pool.   In   addition,   SOLE   is   presented as   a   spatio-temporal   join   between   two   input   streams, a   stream   of   spatio-temporal   objects   and   a   stream   of spatio-temporal queries. To cope with intervals of high arrival rates of objects and/or queries, SOLE utilizes a load-shedding approach where some of the stored objects are dropped from memory. SOLE is implemented   as a pipelined query operator that can be combined with tra- ditional query operators in a query execution plan to sup- port a wide variety of continuous queries. Performance experiments based on a real implementation of SOLE in- side a prototype of a data stream management system show the scalability and eciency of SOLE in highly dynamic environments.&lt;/p&gt;
+      &lt;h1 id=&quot;sole-scalable-on-line-execution-of-continuous-queries-on-spatio-temporal-data-streams&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#sole-scalable-on-line-execution-of-continuous-queries-on-spatio-temporal-data-streams&quot;&gt;&lt;/a&gt; SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams&lt;/h1&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#abstract&quot;&gt;&lt;/a&gt; Abstract&lt;/h2&gt;
+&lt;p&gt;This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for   continuous and on-line evaluation of concurrent continuous spatio- temporal   queries   over   data   streams.   Incoming   spatio- temporal data streams are processed in-memory against a set of outstanding continuous queries. The SOLE algo- rithm utilizes the scarce memory resource eciently by keeping track of only the signicant objects. In-memory stored objects are expired (i.e., dropped) from memory once they become insignicant. SOLE is a scalable algo- rithm where all the continuous outstanding queries share the   same   buer   pool.   In   addition,   SOLE   is   presented as   a   spatio-temporal   join   between   two   input   streams, a   stream   of   spatio-temporal   objects   and   a   stream   of spatio-temporal queries. To cope with intervals of high arrival rates of objects and/or queries, SOLE utilizes a load-shedding approach where some of the stored objects are dropped from memory. SOLE is implemented   as a pipelined query operator that can be combined with tra- ditional query operators in a query execution plan to sup- port a wide variety of continuous queries. Performance experiments based on a real implementation of SOLE in- side a prototype of a data stream management system show the scalability and eciency of SOLE in highly dynamic environments.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Exploring big volume sensor data with Vroom</title>
+    <link href="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/"/>
+    <id>http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/</id>
+    <published>2017-09-14T05:32:28.000Z</published>
+    <updated>2017-09-14T06:14:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;exploring-big-volume-sensor-data-with-vroom&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#exploring-big-volume-sensor-data-with-vroom&quot;&gt;&lt;/a&gt; Exploring big volume sensor data with Vroom&lt;/h1&gt;
+&lt;h2 id=&quot;comments&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#comments&quot;&gt;&lt;/a&gt; Comments:&lt;/h2&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#abstract&quot;&gt;&lt;/a&gt; ABSTRACT&lt;/h2&gt;
+&lt;p&gt;State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of view as well as heavy computation to extract features from scenes. In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases. Vroom combines domain specic properties of AV datasets with selective indexing and multi-query optimization to address challenges posed by AV sensor data.&lt;/p&gt;
     
     </summary>
     
@@ -140,7 +150,10 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Exploring-big-volume-sensor-data-with-Vroom&quot;&gt;&lt;a href=&quot;#Exploring-big-volume-sensor-data-with-Vroom&quot; class=&quot;headerlink&quot; title=&quot;Exploring big volume sensor data with Vroom&quot;&gt;&lt;/a&gt;Exploring big volume sensor data with Vroom&lt;/h1&gt;&lt;h2 id=&quot;Comments&quot;&gt;&lt;a href=&quot;#Comments&quot; class=&quot;headerlink&quot; title=&quot;Comments:&quot;&gt;&lt;/a&gt;Comments:&lt;/h2&gt;&lt;h2 id=&quot;ABSTRACT&quot;&gt;&lt;a href=&quot;#ABSTRACT&quot; class=&quot;headerlink&quot; title=&quot;ABSTRACT&quot;&gt;&lt;/a&gt;ABSTRACT&lt;/h2&gt;&lt;p&gt; State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of   view   as   well   as   heavy   computation   to   extract   features from scenes.   In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases.  Vroom combines   domain   specic   properties   of   AV   datasets   with selective indexing and multi-query optimization to address challenges posed by AV sensor data.&lt;/p&gt;
+      &lt;h1 id=&quot;exploring-big-volume-sensor-data-with-vroom&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#exploring-big-volume-sensor-data-with-vroom&quot;&gt;&lt;/a&gt; Exploring big volume sensor data with Vroom&lt;/h1&gt;
+&lt;h2 id=&quot;comments&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#comments&quot;&gt;&lt;/a&gt; Comments:&lt;/h2&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#abstract&quot;&gt;&lt;/a&gt; ABSTRACT&lt;/h2&gt;
+&lt;p&gt;State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of   view   as   well   as   heavy   computation   to   extract   features from scenes.   In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases.  Vroom combines   domain   specic   properties   of   AV   datasets   with selective indexing and multi-query optimization to address challenges posed by AV sensor data.&lt;/p&gt;
     
     </summary>
     
@@ -181,7 +194,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Spark-summit-2017&quot;&gt;&lt;a href=&quot;#Spark-summit-2017&quot; class=&quot;headerlink&quot; title=&quot;Spark summit 2017&quot;&gt;&lt;/a&gt;Spark summit 2017&lt;/h1&gt;&lt;p&gt;感觉这次比 年初的east 居然要寒碜?  居然早上连个早餐的都没有.   给的袋子里面也全部是广告. &lt;/p&gt;
+      &lt;h1 id=&quot;spark-summit-2017&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#spark-summit-2017&quot;&gt;&lt;/a&gt; Spark summit 2017&lt;/h1&gt;
+&lt;p&gt;感觉这次比 年初的east 居然要寒碜?  居然早上连个早餐的都没有.   给的袋子里面也全部是广告.&lt;/p&gt;
     
     </summary>
     
@@ -201,7 +215,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Topcoder-SRM-715&quot;&gt;&lt;a href=&quot;#Topcoder-SRM-715&quot; class=&quot;headerlink&quot; title=&quot;Topcoder SRM 715&quot;&gt;&lt;/a&gt;Topcoder SRM 715&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://community.topcoder.com/tc?module=ProblemDetail&amp;amp;rd=16884&amp;amp;pm=14612&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Q1 : ImageCompression &lt;/a&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;topcoder-srm-715&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#topcoder-srm-715&quot;&gt;&lt;/a&gt; Topcoder SRM 715&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://community.topcoder.com/tc?module=ProblemDetail&amp;amp;rd=16884&amp;amp;pm=14612&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Q1 : ImageCompression &lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
