@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinxuan.github.io/"/>
-  <updated>2017-09-15T15:28:06.000Z</updated>
+  <updated>2017-09-16T06:30:45.000Z</updated>
   <id>http://jinxuan.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Building Connected Car Applications on Top of the World-Wide Streams Platform</title>
+    <link href="http://jinxuan.github.io/2017/09/15/Building-Connected-Car-Applications-on-Top-of-the-World-Wide-Streams-Platform/"/>
+    <id>http://jinxuan.github.io/2017/09/15/Building-Connected-Car-Applications-on-Top-of-the-World-Wide-Streams-Platform/</id>
+    <published>2017-09-16T06:30:22.000Z</published>
+    <updated>2017-09-16T06:30:45.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Demo-Building-Connected-Car-Applications-on-Top-of-the-World-Wide-Streams-Platform&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Tutorial: Reflections on Almost Two Decades of Research into Stream Processing</title>
@@ -36,24 +60,6 @@
   </entry>
   
   <entry>
-    <title>Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</title>
-    <link href="http://jinxuan.github.io/2017/09/13/Geospatial%20Stream%20Query%20Processing%20using%20Microsoft%20SQL%20Server%20StreamInsight/"/>
-    <id>http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/</id>
-    <published>2017-09-14T05:32:28.000Z</published>
-    <updated>2017-09-14T06:12:53.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight&quot;&gt;&lt;a href=&quot;#Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight&quot; class=&quot;headerlink&quot; title=&quot;Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&quot;&gt;&lt;/a&gt;Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt; Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Continuous Queries over Data Streams</title>
     <link href="http://jinxuan.github.io/2017/09/13/Continuous%20Queries%20over%20Data%20Streams/"/>
     <id>http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/</id>
@@ -63,6 +69,24 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Continuous-Queries-over-Data-Streams&quot;&gt;&lt;a href=&quot;#Continuous-Queries-over-Data-Streams&quot; class=&quot;headerlink&quot; title=&quot;Continuous Queries over Data Streams&quot;&gt;&lt;/a&gt;Continuous Queries over Data Streams&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt;In many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management need to be re- considered in the presence of data streams, offering a new research direction for the database community. In this pa- per we focus primarily on the problem of query process- ing, specically on how to dene and evaluate continuous queries over data streams.   We address semantic issues as well as efciency concerns. Our main contributions are threefold. First, we specify a general and exible architec- ture for query processing in the presence of data streams. Second, we use our basic architecture as a tool to clar- ify alternative semantics and processing techniques for continuous queries.   The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views. Finally, we map out research topics in the area of query processing over data streams, showing where pre- vious work is relevant and describing problems yet to be addressed.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</title>
+    <link href="http://jinxuan.github.io/2017/09/13/Geospatial%20Stream%20Query%20Processing%20using%20Microsoft%20SQL%20Server%20StreamInsight/"/>
+    <id>http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/</id>
+    <published>2017-09-14T05:32:28.000Z</published>
+    <updated>2017-09-14T06:12:53.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight&quot;&gt;&lt;a href=&quot;#Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight&quot; class=&quot;headerlink&quot; title=&quot;Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&quot;&gt;&lt;/a&gt;Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt; Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.&lt;/p&gt;
     
     </summary>
     
