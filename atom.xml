@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinxuan.github.io/"/>
-  <updated>2017-09-17T22:49:54.000Z</updated>
+  <updated>2017-09-19T07:27:58.000Z</updated>
   <id>http://jinxuan.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Database Meets Deep Learning: Challenges and Opportunities</title>
+    <link href="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/"/>
+    <id>http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/</id>
+    <published>2017-09-19T06:52:02.000Z</published>
+    <updated>2017-09-19T07:27:58.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt;Deep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The database community has worked on data-driven applications for many years, and therefore should be playing a lead role in supporting this new wave. However, databases and deep learning are differ- ent in terms of both techniques and applications. In this paper, we discuss research problems at the intersection of the two ﬁelds. In particular, we discuss possible improvements for deep learning systems from a database perspective, and analyze database applications that may beneﬁt from deep learning techniques.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Revisiting the Design of Data Stream Processing Systems on Multi-Core Processors</title>
@@ -74,6 +92,24 @@
   </entry>
   
   <entry>
+    <title>Continuous Queries over Data Streams</title>
+    <link href="http://jinxuan.github.io/2017/09/13/Continuous%20Queries%20over%20Data%20Streams/"/>
+    <id>http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/</id>
+    <published>2017-09-14T05:32:28.000Z</published>
+    <updated>2017-09-14T06:12:16.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Continuous-Queries-over-Data-Streams&quot;&gt;&lt;a href=&quot;#Continuous-Queries-over-Data-Streams&quot; class=&quot;headerlink&quot; title=&quot;Continuous Queries over Data Streams&quot;&gt;&lt;/a&gt;Continuous Queries over Data Streams&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt;In many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management need to be re- considered in the presence of data streams, offering a new research direction for the database community. In this pa- per we focus primarily on the problem of query process- ing, specically on how to dene and evaluate continuous queries over data streams.   We address semantic issues as well as efciency concerns. Our main contributions are threefold. First, we specify a general and exible architec- ture for query processing in the presence of data streams. Second, we use our basic architecture as a tool to clar- ify alternative semantics and processing techniques for continuous queries.   The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views. Finally, we map out research topics in the area of query processing over data streams, showing where pre- vious work is relevant and describing problems yet to be addressed.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Exploring big volume sensor data with Vroom</title>
     <link href="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/"/>
     <id>http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/</id>
@@ -101,24 +137,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight&quot;&gt;&lt;a href=&quot;#Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight&quot; class=&quot;headerlink&quot; title=&quot;Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&quot;&gt;&lt;/a&gt;Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt; Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="paper reading" scheme="http://jinxuan.github.io/categories/paper-reading/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Continuous Queries over Data Streams</title>
-    <link href="http://jinxuan.github.io/2017/09/13/Continuous%20Queries%20over%20Data%20Streams/"/>
-    <id>http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/</id>
-    <published>2017-09-14T05:32:28.000Z</published>
-    <updated>2017-09-14T06:12:16.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Continuous-Queries-over-Data-Streams&quot;&gt;&lt;a href=&quot;#Continuous-Queries-over-Data-Streams&quot; class=&quot;headerlink&quot; title=&quot;Continuous Queries over Data Streams&quot;&gt;&lt;/a&gt;Continuous Queries over Data Streams&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;p&gt;In many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management need to be re- considered in the presence of data streams, offering a new research direction for the database community. In this pa- per we focus primarily on the problem of query process- ing, specically on how to dene and evaluate continuous queries over data streams.   We address semantic issues as well as efciency concerns. Our main contributions are threefold. First, we specify a general and exible architec- ture for query processing in the presence of data streams. Second, we use our basic architecture as a tool to clar- ify alternative semantics and processing techniques for continuous queries.   The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views. Finally, we map out research topics in the area of query processing over data streams, showing where pre- vious work is relevant and describing problems yet to be addressed.&lt;/p&gt;
     
     </summary>
     

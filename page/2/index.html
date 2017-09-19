@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                11
+                12
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,134 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/">Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/">
+            <time datetime="2017-09-14T05:32:28.000Z" itemprop="datePublished">2017-09-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/paper-reading/">paper reading</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h1 id="Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight"><a href="#Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight" class="headerlink" title="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight"></a>Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p> Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.</p></p>
+            <p class="article-more-link">
+                <a href="/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/" data-id="cj7ra2a8t0009x5tainwdu9te" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -262,7 +390,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/" data-id="cj7r8qtqb000amdtaymlzo9ow" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/" data-id="cj7ra2a8v000dx5taaahkfoq4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -360,7 +488,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring big volume sensor data with Vroom/" data-id="cj7r8qtq50005mdtapw1dua2y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring big volume sensor data with Vroom/" data-id="cj7ra2a8p0006x5ta9kaorp4k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -484,7 +612,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/06/07/pixiedust/" data-id="cj7r8qtqh000jmdta05t03ota" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/06/07/pixiedust/" data-id="cj7ra2a96000mx5ta03n3l6r2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -617,7 +745,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/06/06/Spark summit 2017/" data-id="cj7r8qtqd000dmdtaq8aupwxi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/06/06/Spark summit 2017/" data-id="cj7ra2a94000kx5talxng6cil" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -745,7 +873,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/06/01/SRM-715/" data-id="cj7r8qtqf000fmdta6azl7ffu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/06/01/SRM-715/" data-id="cj7ra2a90000fx5ta28vqdxwj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

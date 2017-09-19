@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>pixiedust | Jinxuan Wu&#39;s Blog</title>
+    <title>Database Meets Deep Learning: Challenges and Opportunities | Jinxuan Wu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Data available at SF Open data. Tutorial slides: slidesshare Notebook: github">
+    <meta name="description" content="AbstractDeep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The databas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pixiedust">
-<meta property="og:url" content="http://jinxuan.github.io/2017/06/07/pixiedust/index.html">
+<meta property="og:title" content="Database Meets Deep Learning: Challenges and Opportunities">
+<meta property="og:url" content="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/index.html">
 <meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
-<meta property="og:description" content="Data available at SF Open data. Tutorial slides: slidesshare Notebook: github">
+<meta property="og:description" content="AbstractDeep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The databas">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-14T05:39:23.000Z">
+<meta property="og:updated_time" content="2017-09-19T07:27:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pixiedust">
-<meta name="twitter:description" content="Data available at SF Open data. Tutorial slides: slidesshare Notebook: github">
+<meta name="twitter:title" content="Database Meets Deep Learning: Challenges and Opportunities">
+<meta name="twitter:description" content="AbstractDeep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The databas">
     
 
     
@@ -215,7 +215,7 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-pixiedust" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Database-Meets-Deep-Learning-Challenges-and-Opportunities" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -223,7 +223,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            pixiedust
+            Database Meets Deep Learning: Challenges and Opportunities
         </h1>
     
 
@@ -232,13 +232,18 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/06/07/pixiedust/">
-            <time datetime="2017-06-07T22:22:55.000Z" itemprop="datePublished">2017-06-07</time>
+        <a href="/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/">
+            <time datetime="2017-09-19T06:52:02.000Z" itemprop="datePublished">2017-09-18</time>
         </a>
     </div>
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/paper-reading/">paper reading</a>
+    </div>
+
                         
                     </div>
                 
@@ -248,9 +253,31 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Data available at <a href="https://datasf.org/opendata/" target="_blank" rel="external">SF Open data</a>.</p>
-<p>Tutorial slides: <a href="https://www.slideshare.net/DTAIEB/data-science-bootcamp-with-pixie-dust?qid=9dcabfc9-8271-4b86-8b6a-a0d29f4a465b&amp;v=&amp;b=&amp;from_search=1" target="_blank" rel="external">slidesshare</a></p>
-<p>Notebook: <a href="https://github.com/DTAIEB/demos/blob/master/Spark%20Summit%20PixieDust%20bootcamp/Spark%20Summit%20PixieDust%20Bootcamp%20Master.ipynb" target="_blank" rel="external">github</a></p>
+            <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Deep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The database community has worked on data-driven applications for many years, and therefore should be playing a lead role in supporting this new wave. However, databases and deep learning are differ- ent in terms of both techniques and applications. In this paper, we discuss research problems at the intersection of the two ﬁelds. In particular, we discuss possible improvements for deep learning systems from a database perspective, and analyze database applications that may beneﬁt from deep learning techniques.</p>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>These days, we witnessed the success of numerous data-driven machine-learning-based applications.</li>
+<li>Insights that the database community can offer to deep learning?<ul>
+<li>Apply database techniques for optimizing deep learn- ing systems. </li>
+<li>Donducted using deep learning techniques for database problems. Such as knowledge fusion and crowdsourcing, which are probabilistic problems. It is possible to apply deep learning techniques in these areas.</li>
+</ul>
+</li>
+</ul>
+<h2 id="DATABASES-TO-DEEP-LEARNING"><a href="#DATABASES-TO-DEEP-LEARNING" class="headerlink" title="DATABASES TO DEEP LEARNING"></a>DATABASES TO DEEP LEARNING</h2><ul>
+<li>Stand-alone Training<ul>
+<li>Use Nvidia GPU with the cuDNN library</li>
+<li>Operation Scheduling, build a cost model for operation placing strategy like query plans estimate in database. </li>
+<li>Memory Management, such as use paging and cacheing techniques in DB to GPU Memory management.</li>
+</ul>
+</li>
+<li>Distribute Training</li>
+</ul>
+<p>The parameter server architecture is typically used, in which the workers compute parameter gradients and the servers update the parameter val- ues after receiving gradients from workers. There are two basic parallelism schemes for distributed training, namely, data parallelism and model par- allelism. In data parallelism, each worker is as- signed a data partition and a model replica, while for model parallelism, each worker is assigned a par- tition of the model and the whole dataset.</p>
+<pre><code>* Communication and Synchronization
+* Concurrency and Consistency
+* Fault Tolerance
+</code></pre><h2 id="DEEP-LEARNING-TO-DATABASES"><a href="#DEEP-LEARNING-TO-DATABASES" class="headerlink" title="DEEP LEARNING TO DATABASES"></a>DEEP LEARNING TO DATABASES</h2><p>[todo]</p>
+<p>#Conclusion<br>Databases have many techniques for optimizing system performance, while deep learning is good at learning e↵ective representation for data-driven applications. We note that these two “different” areas share some common techniques for improving the system performance, such as memory optimization and parallelism. We have discussed some possible improvements for deep learning sys- tems using database techniques, and research problems applying deep learning techniques in database applications</p>
 
         
         </div>
@@ -261,7 +288,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/06/07/pixiedust/" data-id="cj7ra2a96000mx5ta03n3l6r2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/" data-id="cj7ra2a8e0000x5tai8w8il2b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -329,7 +356,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="http://jinxuan.github.io/2017/06/07/pixiedust/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jinxuan.github.io/2017/06/07/pixiedust/">Comments</a>
+        <a href="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/">Comments</a>
     
 
         </footer>
@@ -338,19 +365,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2017/09/13/Exploring big volume sensor data with Vroom/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    (no title)
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/06/06/Spark summit 2017/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/09/17/Revisiting-the-Design-of-Data-Stream-Processing-Systems-on-Multi-Core-Processors/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Spark Summit 2017</div>
+            <div class="article-nav-title">Revisiting the Design of Data Stream Processing Systems on Multi-Core Processors</div>
         </a>
     
 </nav>
@@ -389,9 +407,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://jinxuan.github.io/2017/06/07/pixiedust/';
+            this.page.url = 'http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/';
         
-        this.page.identifier = 'pixiedust';
+        this.page.identifier = 'Database-Meets-Deep-Learning-Challenges-and-Opportunities';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
