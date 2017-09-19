@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
 <meta property="og:description" content="AbstractDeep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The databas">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-19T07:28:31.000Z">
+<meta property="og:updated_time" content="2017-09-19T07:29:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Database Meets Deep Learning: Challenges and Opportunities">
 <meta name="twitter:description" content="AbstractDeep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The databas">
@@ -273,10 +273,12 @@ ga('send', 'pageview');
 <li>Distribute Training</li>
 </ul>
 <p>The parameter server architecture is typically used, in which the workers compute parameter gradients and the servers update the parameter val- ues after receiving gradients from workers. There are two basic parallelism schemes for distributed training, namely, data parallelism and model par- allelism. In data parallelism, each worker is as- signed a data partition and a model replica, while for model parallelism, each worker is assigned a par- tition of the model and the whole dataset.</p>
-<pre><code>* Communication and Synchronization
-* Concurrency and Consistency
-* Fault Tolerance
-</code></pre><h2 id="DEEP-LEARNING-TO-DATABASES"><a href="#DEEP-LEARNING-TO-DATABASES" class="headerlink" title="DEEP LEARNING TO DATABASES"></a>DEEP LEARNING TO DATABASES</h2><p>[todo]</p>
+<ul>
+<li>Communication and Synchronization</li>
+<li>Concurrency and Consistency</li>
+<li>Fault Tolerance</li>
+</ul>
+<h2 id="DEEP-LEARNING-TO-DATABASES"><a href="#DEEP-LEARNING-TO-DATABASES" class="headerlink" title="DEEP LEARNING TO DATABASES"></a>DEEP LEARNING TO DATABASES</h2><p>[todo]</p>
 <p>#Conclusion<br>Databases have many techniques for optimizing system performance, while deep learning is good at learning e↵ective representation for data-driven applications. We note that these two “different” areas share some common techniques for improving the system performance, such as memory optimization and parallelism. We have discussed some possible improvements for deep learning sys- tems using database techniques, and research problems applying deep learning techniques in database applications</p>
 
         
@@ -288,7 +290,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/" data-id="cj7ra2zgp00001atansyb9csh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/" data-id="cj7ra42nq00005starwabgnrl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
