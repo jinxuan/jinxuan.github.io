@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
 <meta property="og:description" content="#Tutorial: Reflections on Almost Two Decades of Research into Stream Processing This tutorial reflects on this research history by highlighting a number of trends and best practices that can be identi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-15T15:28:06.000Z">
+<meta property="og:updated_time" content="2017-09-17T23:26:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tutorial: Reflections on Almost Two Decades of Research into Stream Processing">
 <meta name="twitter:description" content="#Tutorial: Reflections on Almost Two Decades of Research into Stream Processing This tutorial reflects on this research history by highlighting a number of trends and best practices that can be identi">
@@ -169,7 +169,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                10
+                11
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -254,57 +254,48 @@ ga('send', 'pageview');
         
             
             <p>#Tutorial: Reflections on Almost Two Decades of Research into Stream Processing</p>
-<p>This tutorial reflects on this research history by highlighting<br>
-a number of trends and best practices that can be identied in hindsight. It also enumerates a list of directions for future research in stream processing.</p>
+<p>This tutorial reflects on this research history by highlighting<br> a number of trends and best practices that can be identied in hindsight. It also enumerates a list of directions for future research in stream processing.</p>
 <a id="more"></a>
-<h2 id="notable-systems"><a class="markdownIt-Anchor" href="#notable-systems"></a> NOTABLE SYSTEMS:</h2>
-<ul>
-<li>[ ] TinyDB</li>
-<li>[ ] STREAM</li>
-<li>[ ] TelegraphCQ [13],</li>
-<li>[ ] Gigascope [15],</li>
-<li>[ ] Aurora</li>
-<li>[ ] Borealis</li>
-<li>[ ] IBM Infosphere Systems</li>
-<li>[ ] System S</li>
-<li>[ ] S4</li>
-<li>[ ] Storm</li>
-<li>[x] Spark Streaming</li>
-<li>[ ] Flink</li>
-<li>[ ] Kafka/Samza</li>
-<li>[ ] Millwheel</li>
-<li>[ ] Google Cloud DataFlow</li>
-<li>[ ] StreamScope</li>
+<h2 id="NOTABLE-SYSTEMS"><a href="#NOTABLE-SYSTEMS" class="headerlink" title="NOTABLE SYSTEMS:"></a>NOTABLE SYSTEMS:</h2><ul>
+<li style="list-style: none"><input type="checkbox"> TinyDB </li>
+<li style="list-style: none"><input type="checkbox"> STREAM </li>
+<li style="list-style: none"><input type="checkbox"> TelegraphCQ [13], </li>
+<li style="list-style: none"><input type="checkbox"> Gigascope [15], </li>
+<li style="list-style: none"><input type="checkbox"> Aurora</li>
+<li style="list-style: none"><input type="checkbox"> Borealis </li>
+<li style="list-style: none"><input type="checkbox"> IBM Infosphere Systems</li>
+<li style="list-style: none"><input type="checkbox"> System S </li>
+<li style="list-style: none"><input type="checkbox"> S4 </li>
+<li style="list-style: none"><input type="checkbox"> Storm </li>
+<li style="list-style: none"><input type="checkbox" checked> Spark Streaming </li>
+<li style="list-style: none"><input type="checkbox"> Flink </li>
+<li style="list-style: none"><input type="checkbox"> Kafka/Samza </li>
+<li style="list-style: none"><input type="checkbox"> Millwheel </li>
+<li style="list-style: none"><input type="checkbox"> Google Cloud DataFlow</li>
+<li style="list-style: none"><input type="checkbox"> StreamScope</li>
 </ul>
-<h2 id="trends"><a class="markdownIt-Anchor" href="#trends"></a> TRENDS</h2>
-<ul>
-<li>From DSMSs to Big “Streaming” Data Frameworks
-<ul>
-<li>Combine the low-latency benets of streaming systems with the scalability properties of Big Data frameworks.</li>
+<h2 id="TRENDS"><a href="#TRENDS" class="headerlink" title="TRENDS"></a>TRENDS</h2><ul>
+<li>From DSMSs to Big “Streaming” Data Frameworks<ul>
+<li>Combine the low-latency benefits of streaming systems with the scalability properties of Big Data frameworks.</li>
 </ul>
 </li>
-<li>Increased Importance of Exact Results
-<ul>
-<li>providing the exactly once delivery semantics. Even transactional properties</li>
+<li>Increased Importance of Exact Results<ul>
+<li>providing the exactly once delivery semantics. Even transactional properties    </li>
 </ul>
 </li>
-<li>One-pass Computation vs Replayability
-<ul>
+<li>One-pass Computation vs Replayability<ul>
 <li>Previously data was primarily kept in memory but for a very short period of time for  low latency requirement assumption. Now use  high-throughput persisted message buses such as Kafka ease of debugging and replayability.  Simplifies fault-tolerance mechanisms.</li>
 </ul>
 </li>
-<li>Unification of Batch and Streaming Models
-<ul>
-<li>Flink</li>
+<li>Unification of Batch and Streaming Models<ul>
+<li>Flink and apache Beam.</li>
 </ul>
 </li>
-<li>Domain-specific to General-purpose
-<ul>
+<li>Domain-specific to General-purpose<ul>
 <li>wireless sensor networks or network traffic monitoring</li>
 </ul>
 </li>
-<li>Richer Window Specifications
-<ul>
+<li>Richer Window Specifications<ul>
 <li>Time or count-based windows</li>
 <li>Session Windows (Google Cloud Dataflow and Kafka Streams) and Episodes/Frames</li>
 </ul>
@@ -325,7 +316,7 @@ a number of trends and best practices that can be identied in hindsight. It a
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/14/Tutorial-Reflections-on-Almost-Two-Decades-of-Research-into-Stream-Processing/" data-id="cj7pc3srb000e9g3odz0osi88" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/14/Tutorial-Reflections-on-Almost-Two-Decades-of-Research-into-Stream-Processing/" data-id="cj7r8qtqi000lmdta7n9nyd4r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -412,9 +403,9 @@ a number of trends and best practices that can be identied in hindsight. It a
         </a>
     
     
-        <a href="/2017/09/13/Continuous Queries over Data Streams/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Continuous Queries over Data Streams</div>
+            <div class="article-nav-title">Exploring big volume sensor data with Vroom</div>
         </a>
     
 </nav>

@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                10
+                11
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,134 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/">SOLE Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/">
+            <time datetime="2017-09-14T05:32:28.000Z" itemprop="datePublished">2017-09-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/paper-reading/">paper reading</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h1 id="SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams"><a href="#SOLE-Scalable-On-Line-Execution-of-Continuous-Queries-on-Spatio-temporal-Data-Streams" class="headerlink" title="SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams"></a>SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p> This   paper   presents   the   Scalable   On-Line Execution   algorithm   (SOLE,   for   short)   for   continuous and on-line evaluation of concurrent continuous spatio- temporal   queries   over   data   streams.   Incoming   spatio- temporal data streams are processed in-memory against a set of outstanding continuous queries. The SOLE algo- rithm utilizes the scarce memory resource eciently by keeping track of only the signicant objects. In-memory stored objects are expired (i.e., dropped) from memory once they become insignicant. SOLE is a scalable algo- rithm where all the continuous outstanding queries share the   same   buer   pool.   In   addition,   SOLE   is   presented as   a   spatio-temporal   join   between   two   input   streams, a   stream   of   spatio-temporal   objects   and   a   stream   of spatio-temporal queries. To cope with intervals of high arrival rates of objects and/or queries, SOLE utilizes a load-shedding approach where some of the stored objects are dropped from memory. SOLE is implemented   as a pipelined query operator that can be combined with tra- ditional query operators in a query execution plan to sup- port a wide variety of continuous queries. Performance experiments based on a real implementation of SOLE in- side a prototype of a data stream management system show the scalability and eciency of SOLE in highly dynamic environments.</p></p>
+            <p class="article-more-link">
+                <a href="/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/" data-id="cj7r8qtqb000amdtaymlzo9ow" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jinxuan.github.io/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Exploring big volume sensor data with Vroom" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -219,10 +347,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h1 id="exploring-big-volume-sensor-data-with-vroom"><a class="markdownIt-Anchor" href="#exploring-big-volume-sensor-data-with-vroom"></a> Exploring big volume sensor data with Vroom</h1>
-<h2 id="comments"><a class="markdownIt-Anchor" href="#comments"></a> Comments:</h2>
-<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> ABSTRACT</h2>
-<p>State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of   view   as   well   as   heavy   computation   to   extract   features from scenes.   In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases.  Vroom combines   domain   specic   properties   of   AV   datasets   with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p></p>
+            <p><h1 id="Exploring-big-volume-sensor-data-with-Vroom"><a href="#Exploring-big-volume-sensor-data-with-Vroom" class="headerlink" title="Exploring big volume sensor data with Vroom"></a>Exploring big volume sensor data with Vroom</h1><h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments:"></a>Comments:</h2><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p> State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of   view   as   well   as   heavy   computation   to   extract   features from scenes.   In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases.  Vroom combines   domain   specic   properties   of   AV   datasets   with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p></p>
             <p class="article-more-link">
                 <a href="/2017/09/13/Exploring big volume sensor data with Vroom/#more">Read More</a>
             </p>
@@ -235,7 +360,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring big volume sensor data with Vroom/" data-id="cj7pc3sr300039g3oqj78qqud" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring big volume sensor data with Vroom/" data-id="cj7r8qtq50005mdtapw1dua2y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -359,7 +484,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/06/07/pixiedust/" data-id="cj7pc3srd000h9g3op3cml3vv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/06/07/pixiedust/" data-id="cj7r8qtqh000jmdta05t03ota" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -479,8 +604,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h1 id="spark-summit-2017"><a class="markdownIt-Anchor" href="#spark-summit-2017"></a> Spark summit 2017</h1>
-<p>感觉这次比 年初的east 居然要寒碜?  居然早上连个早餐的都没有.   给的袋子里面也全部是广告.</p></p>
+            <p><h1 id="Spark-summit-2017"><a href="#Spark-summit-2017" class="headerlink" title="Spark summit 2017"></a>Spark summit 2017</h1><p>感觉这次比 年初的east 居然要寒碜?  居然早上连个早餐的都没有.   给的袋子里面也全部是广告. </p></p>
             <p class="article-more-link">
                 <a href="/2017/06/06/Spark summit 2017/#more">Read More</a>
             </p>
@@ -493,7 +617,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/06/06/Spark summit 2017/" data-id="cj7pc3sr9000b9g3ohyfef5ak" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/06/06/Spark summit 2017/" data-id="cj7r8qtqd000dmdtaq8aupwxi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -608,8 +732,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h1 id="topcoder-srm-715"><a class="markdownIt-Anchor" href="#topcoder-srm-715"></a> Topcoder SRM 715</h1>
-<p><a href="https://community.topcoder.com/tc?module=ProblemDetail&amp;rd=16884&amp;pm=14612" target="_blank" rel="external">Q1 : ImageCompression </a></p></p>
+            <p><h1 id="Topcoder-SRM-715"><a href="#Topcoder-SRM-715" class="headerlink" title="Topcoder SRM 715"></a>Topcoder SRM 715</h1><p><a href="https://community.topcoder.com/tc?module=ProblemDetail&amp;rd=16884&amp;pm=14612" target="_blank" rel="external">Q1 : ImageCompression </a></p></p>
             <p class="article-more-link">
                 <a href="/2017/06/01/SRM-715/#more">Read More</a>
             </p>
@@ -622,7 +745,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/06/01/SRM-715/" data-id="cj7pc3sr800089g3o1jrw0qs6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/06/01/SRM-715/" data-id="cj7r8qtqf000fmdta6azl7ffu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
