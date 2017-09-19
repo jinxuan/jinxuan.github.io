@@ -5,17 +5,17 @@
     
     <title>Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight | Jinxuan Wu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsightAbstract Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data type">
+    <meta name="description" content="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight  Abstract Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight">
 <meta property="og:url" content="http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/index.html">
 <meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
-<meta property="og:description" content="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsightAbstract Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data type">
+<meta property="og:description" content="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight  Abstract Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data t">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-14T06:12:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight">
-<meta name="twitter:description" content="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsightAbstract Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data type">
+<meta name="twitter:description" content="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight  Abstract Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data t">
     
 
     
@@ -253,41 +253,53 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight"><a href="#Geospatial-Stream-Query-Processing-using-Microsoft-SQL-Server-StreamInsight" class="headerlink" title="Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight"></a>Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p> Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.</p>
+            <h1 id="geospatial-stream-query-processing-using-microsoft-sql-server-streaminsight"><a class="markdownIt-Anchor" href="#geospatial-stream-query-processing-using-microsoft-sql-server-streaminsight"></a> Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</h1>
+<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
+<p>Microsoft SQL Server spatial libraries contain several components that handle geometrical and geographical data types. With advances in geo-sensing technologies, there has been an increasing demand for geospatial streaming applications. Microsoft SQL Server StreamInsight (StreamInsight, for brevity) is a platform for developing and deploying streaming applications that run continuous queries over high-rate streaming events. With its extensibility infrastructure, StreamInsight enables developers to integrate their domain expertise within the query pipeline in the form of user defined modules. This demo utilizes the extensibility infrastructure in Microsoft StreamInsight to leverage its continuous query processing capabilities in two directions. The first direction integrates SQL spatial libraries into the continuous query pipeline of StreamInsight. StreamInsight provides a well-defined temporal model over incoming events while SQL spatial libraries cover the spatial properties of events to deliver a solution for spatiotemporal stream query processing. The second direction extends the system with an analytical refinement and prediction layer. This layer analyzes historical data that has been accumulated and summarized over the years to refine, smooth and adjust the current query output as well as predict the output in the near future. The demo scenario is based on transportation data in Los Angeles County.</p>
 <a id="more"></a>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
-<li><p>geostreaming, StreamLight, Spatial Libraries</p>
-<h3 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h3></li>
-<li><p>port geospatial libraries to the streaming domain with the incremental single-pass processing model in mind.</p>
-</li>
-<li><p>make decision based on the continuous query result.</p>
-<h3 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h3></li>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li>geostreaming, StreamLight, Spatial Libraries</li>
+</ul>
+<h3 id="challenges"><a class="markdownIt-Anchor" href="#challenges"></a> Challenges</h3>
+<ul>
+<li>port geospatial libraries to the streaming domain with the incremental single-pass processing model in mind.</li>
+<li>make decision based on the continuous query result.</li>
+</ul>
+<h3 id="contributions"><a class="markdownIt-Anchor" href="#contributions"></a> Contributions</h3>
+<ul>
 <li>integrate Microsoft SQL Server Spatial Libraries into Microsoft StreamInsight to support the online processing of geo-stream data. Special attention is given to incrementally evaluate spatial operations.</li>
 <li>Implement an online analytical refinement and prediction layer that enables querying of historical (archived) stream data.</li>
 </ul>
-<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="StreamInsight"><a href="#StreamInsight" class="headerlink" title="StreamInsight"></a>StreamInsight</h3><ul>
-<li>Input Adapter: continuously listens on a TCP port for the streaming data. Once a packet of data is retrieved, the corresponding events are created and enqueued to the streaming engine. </li>
-<li>Streaming Engine: Runs pre-defined queries on input events, Also did query fusing, operator sharing, and query and stream partitioning. StreamInsight provides user-defined aggregate (UDA), user- defined operator (UDO), and user-defined function (UDF) facilities. </li>
-<li><p>Output Adapter</p>
-<h3 id="Online-Analytical-Refinement-and-Prediction-Layer"><a href="#Online-Analytical-Refinement-and-Prediction-Layer" class="headerlink" title="Online Analytical Refinement and Prediction Layer"></a>Online Analytical Refinement and Prediction Layer</h3></li>
+<h2 id="architecture"><a class="markdownIt-Anchor" href="#architecture"></a> Architecture</h2>
+<h3 id="streaminsight"><a class="markdownIt-Anchor" href="#streaminsight"></a> StreamInsight</h3>
+<ul>
+<li>Input Adapter: continuously listens on a TCP port for the streaming data. Once a packet of data is retrieved, the corresponding events are created and enqueued to the streaming engine.</li>
+<li>Streaming Engine: Runs pre-defined queries on input events, Also did query fusing, operator sharing, and query and stream partitioning. StreamInsight provides user-defined aggregate (UDA), user- defined operator (UDO), and user-defined function (UDF) facilities.</li>
+<li>Output Adapter</li>
+</ul>
+<h3 id="online-analytical-refinement-and-prediction-layer"><a class="markdownIt-Anchor" href="#online-analytical-refinement-and-prediction-layer"></a> Online Analytical Refinement and Prediction Layer</h3>
+<ul>
 <li>Use PCA to implement a historical data sketches.</li>
 <li>more correlated is the streaming data, the less number of components are needed to create accurate</li>
-<li><p>. Given efficient access to historical data through UDAs, one can accomplish the following refinement and prediction functions.</p>
+<li>. Given efficient access to historical data through UDAs, one can accomplish the following refinement and prediction functions.</li>
+</ul>
 <p>Refinement functions</p>
-</li>
+<ul>
 <li>Substituting missing streaming data</li>
 <li>Smoothing noisy input data</li>
-<li><p>Detection of anomalies</p>
-<p>Prediction functions</p>
-</li>
-<li>Predicting near future trends</li>
-<li><p>Responding to anomalies</p>
-<h3 id="Spatial-Cartridge"><a href="#Spatial-Cartridge" class="headerlink" title="Spatial Cartridge"></a>Spatial Cartridge</h3></li>
-<li>For stream join relational table</li>
-<li>Spatial cartridge extends the capabilities of StreamInsight <ul>
-<li>Determining the way StreamInsight retrieves and interprets the underlying spatial information (e.g., road networks) by customizing the spatial operators and idexes for efficient access to large spatial data. This way users can easily implement the functions or interfaces that have the specialized behavior required in the geostreaming applications.</li>
+<li>Detection of anomalies</li>
 </ul>
-</li>
+<p>Prediction functions</p>
+<ul>
+<li>Predicting near future trends</li>
+<li>Responding to anomalies</li>
+</ul>
+<h3 id="spatial-cartridge"><a class="markdownIt-Anchor" href="#spatial-cartridge"></a> Spatial Cartridge</h3>
+<ul>
+<li>For stream join relational table</li>
+<li>Spatial cartridge extends the capabilities of StreamInsight</li>
+<li>Determining the way StreamInsight retrieves and interprets the underlying spatial information (e.g., road networks) by customizing the spatial operators and idexes for efficient access to large spatial data. This way users can easily implement the functions or interfaces that have the specialized behavior required in the geostreaming applications.</li>
 </ul>
 
         
@@ -299,7 +311,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/" data-id="cj7ra42o300085staqr34oy5w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/" data-id="cj7ra4zq400089ztafaosfu0d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -386,9 +398,9 @@ ga('send', 'pageview');
         </a>
     
     
-        <a href="/2017/09/13/Continuous Queries over Data Streams/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/09/13/SOLE: Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Continuous Queries over Data Streams</div>
+            <div class="article-nav-title">SOLE Scalable On-Line Execution of Continuous Queries on Spatio-temporal Data Streams</div>
         </a>
     
 </nav>
