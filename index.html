@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                12
+                13
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,167 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-ModelHub-Lifecycle-Management-for-Deep-Learning" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/19/ModelHub-Lifecycle-Management-for-Deep-Learning/">ModelHub: Lifecycle Management for Deep Learning</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/19/ModelHub-Lifecycle-Management-for-Deep-Learning/">
+            <time datetime="2017-09-20T05:06:24.000Z" itemprop="datePublished">2017-09-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/paper-reading/">paper reading</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Deep learning has improved state-of-the-art results in many important ﬁelds, and has been the subject of much research in recent years, leading to the development of several systems for facili- tating deep learning. Current systems, however, mainly focus on model building and training phases, while the issues of data management, model sharing, and lifecycle management are largely ignored. Deep learning modeling lifecycle contains a rich set of artiacts, such as learned parameters and training logs, and frequently conducted tasks, e.g., to understand the model behaviors and to try out new models. Dealing with such artifacts and tasks is cumbersome and left to the users. To address these issues in a comprehensive manner, we propose ModelHub, which includes a novel model versioning system (dlv); a domain speciﬁc language for searching through model space (DQL); and a hosted service (ModelHub) to store developed models, explore existing models, enumerate new models and share models with others.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="https://farm5.staticflickr.com/4382/37166212212_fd444a349d_o.jpg" alt="QQ20170919-221253@2x"></p>
+<p>The above model lifecycle demostrate the following challenges:</p>
+<ul>
+<li>It is diﬃcult to keep track of the many models developed and/or understand the diﬀerences amongst them.</li>
+<li>The development lifecycle itself has time-consuming repetitive sub-steps, such as adding a layer at diﬀerent places to adjust a model, searching through a set of hyper-parameters for the diﬀerent variations, reusing learned weights to train models, etc.</li>
+<li>The storage footprint of deep learning models tends to be very large.</li>
+<li>Sharing and reusing models is not easy,</li>
+</ul>
+<p>To solve this, ModelHub </p>
+<ul>
+<li>a model versioning system (DLV) to store and query the models and their ver- sions.</li>
+<li>a model enumeration and hyper-parameter tuning domain speciﬁc language (DQL)</li>
+<li>a hosted deep learning model sharing system (ModelHub) to publish, discover and reuse models from others.</li>
+</ul>
+<h2 id="System-Architecture"><a href="#System-Architecture" class="headerlink" title="System Architecture"></a>System Architecture</h2><h3 id="System-Architecture-1"><a href="#System-Architecture-1" class="headerlink" title="System Architecture"></a>System Architecture</h3><p><img src="https://farm5.staticflickr.com/4353/37166213062_602fd0faf6_o.jpg" alt="QQ20170919-222245@2x"></p>
+<h3 id="Data-Model"><a href="#Data-Model" class="headerlink" title="Data Model"></a>Data Model</h3><p>ModelHub works on two levels of data models: conceptual DNN model, and data model for the model versions in the DLV repository.</p>
+<ul>
+<li>DNN Model: DAG of deep learning weights &amp; bias</li>
+<li>VCS Data Model: It consists of a network definition, weights, extracted metadata, files used to-<br>gether with the model instance.<ul>
+<li>In the implementation, model versions can be viewed as a relation of  M(name, id, N, W, M, F)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Query-Facilities"><a href="#Query-Facilities" class="headerlink" title="Query Facilities"></a>Query Facilities</h3><h4 id="Model-Exploration-Queries"><a href="#Model-Exploration-Queries" class="headerlink" title="Model Exploration Queries"></a>Model Exploration Queries</h4><ul>
+<li>users use this query to understand a particular model, query lineages of the models, and compare several models.<h4 id="Model-Enumeration-Queries"><a href="#Model-Enumeration-Queries" class="headerlink" title="Model Enumeration Queries"></a>Model Enumeration Queries</h4></li>
+<li>explore variations of cur- rently available models in a repository.<ul>
+<li>Select models to improve</li>
+<li>Slice particular models</li>
+<li>Construct new models</li>
+<li>Try the new models on diﬀerent hyper-parameters</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">Query 1: DQL select query to pick the models.</div><div class="line">select m1</div><div class="line">where</div><div class="line">m1.name like &quot; alexnet_%&quot; and</div><div class="line">m1.creation_time &gt; &quot; 2015-11-22&quot; and</div><div class="line">m1[&quot; conv[1,3,5]&quot; ].next has POOL(&quot; MAX&quot; )</div><div class="line"></div><div class="line">Query 2: DQL slice query to get a sub-network.</div><div class="line">slice m2 from m1</div><div class="line">where m1.name like &quot; alexnet -origin%&quot;</div><div class="line">mutate m2.input = m1[&quot; conv1&quot; ] and</div><div class="line">m2.output = m1[&quot; fc7&quot; ]</div><div class="line"></div><div class="line">Query 3: DQL construct query to derive more models on existing ones.</div><div class="line">construct m2 from m1</div><div class="line">where</div><div class="line">m1.name like &quot; alexnet -avgv1%&quot; and</div><div class="line">m1[&quot; conv*($1)&quot; ].next has POOL(&quot; AVG&quot; )</div><div class="line">mutate m1[&quot; conv*($1)&quot; ].insert = RELU(&quot; relu$1&quot; )</div><div class="line"></div><div class="line">Query 4: DQL evaluate query to enumerate models with diﬀerent net- work deﬁnitions, search hyper-parameters, and eliminate models.</div><div class="line">evaluate m</div><div class="line">from &quot; query3&quot;</div><div class="line">with config = &quot; path to config&quot;</div><div class="line">vary config.base_lr in [0.1, 0.01, 0.001] and</div><div class="line">config.net[&quot; conv*&quot; ].lr auto and</div><div class="line">config.input_data in [&quot; path1&quot; , &quot; path2&quot; ]</div><div class="line">keep top(5, m[&quot; loss&quot; ], 100)</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://jinxuan.github.io/2017/09/19/ModelHub-Lifecycle-Management-for-Deep-Learning/" data-id="cj7smubx80006yjta9p1anuwu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://jinxuan.github.io/2017/09/19/ModelHub-Lifecycle-Management-for-Deep-Learning/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jinxuan.github.io/2017/09/19/ModelHub-Lifecycle-Management-for-Deep-Learning/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Database-Meets-Deep-Learning-Challenges-and-Opportunities" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -249,8 +410,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
-<p>Deep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The database community has worked on data-driven applications for many years, and therefore should be playing a lead role in supporting this new wave. However, databases and deep learning are differ- ent in terms of both techniques and applications. In this paper, we discuss research problems at the intersection of the two ﬁelds. In particular, we discuss possible improvements for deep learning systems from a database perspective, and analyze database applications that may beneﬁt from deep learning techniques.</p></p>
+            <p><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Deep learning has recently become very popular on account of its incredible success in many complex data- driven applications, including image classiﬁcation and speech recognition. The database community has worked on data-driven applications for many years, and therefore should be playing a lead role in supporting this new wave. However, databases and deep learning are differ- ent in terms of both techniques and applications. In this paper, we discuss research problems at the intersection of the two ﬁelds. In particular, we discuss possible improvements for deep learning systems from a database perspective, and analyze database applications that may beneﬁt from deep learning techniques.</p></p>
             <p class="article-more-link">
                 <a href="/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/#more">Read More</a>
             </p>
@@ -263,7 +423,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/" data-id="cj7ra4zpr00009ztaekyfy3va" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/18/Database-Meets-Deep-Learning-Challenges-and-Opportunities/" data-id="cj7smubx60005yjtal8pebtkw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -384,7 +544,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/17/Revisiting-the-Design-of-Data-Stream-Processing-Systems-on-Multi-Core-Processors/" data-id="cj7ra4zq500099ztash0s5r2k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/17/Revisiting-the-Design-of-Data-Stream-Processing-Systems-on-Multi-Core-Processors/" data-id="cj7smubxe000dyjtailzgsylf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -500,9 +660,7 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="demo-building-connected-car-applications-on-top-of-the-world-wide-streams-platform"><a class="markdownIt-Anchor" href="#demo-building-connected-car-applications-on-top-of-the-world-wide-streams-platform"></a> Demo: Building Connected Car Applications on Top of the World-Wide Streams Platform</h1>
-<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
-<p>The connected car is likely to play a fundamental role in the fore- seeable Internet of ings. e connectivity aspect in combination with the available data (e.g. from GPS, on-board diagnostics, road sensors) and video (e.g. from dashcams and trac cameras) streams enable a range of new applications, e.g., accident avoidance, online route planning, energy optimization, etc.</p>
+            <h1 id="Demo-Building-Connected-Car-Applications-on-Top-of-the-World-Wide-Streams-Platform"><a href="#Demo-Building-Connected-Car-Applications-on-Top-of-the-World-Wide-Streams-Platform" class="headerlink" title="Demo: Building Connected Car Applications on Top of the World-Wide Streams Platform"></a>Demo: Building Connected Car Applications on Top of the World-Wide Streams Platform</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>The connected car is likely to play a fundamental role in the fore- seeable Internet of ings. e connectivity aspect in combination with the available data (e.g. from GPS, on-board diagnostics, road sensors) and video (e.g. from dashcams and trac cameras) streams enable a range of new applications, e.g., accident avoidance, online route planning, energy optimization, etc.</p>
 <p>ese applications, however, come with an additional set of re- quirements which are not accommodated by the state-of-the-art stream processing platforms. We have built World-Wide Streams (WWS), a novel stream processing platform that has been explicitly designed with those requirements in mind. In this demo presenta- tion, we will show a number of connected car scenarios that we have built on top of WWS.</p>
 
         
@@ -514,7 +672,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/15/Building-Connected-Car-Applications-on-Top-of-the-World-Wide-Streams-Platform/" data-id="cj7ra4zpw00029zta5zh3azdg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/15/Building-Connected-Car-Applications-on-Top-of-the-World-Wide-Streams-Platform/" data-id="cj7smubww0000yjtangxhxlyc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -630,8 +788,7 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>#Tutorial: Reflections on Almost Two Decades of Research into Stream Processing</p>
-<p>This tutorial reflects on this research history by highlighting<br>
-a number of trends and best practices that can be identied in hindsight. It also enumerates a list of directions for future research in stream processing.</p></p>
+<p>This tutorial reflects on this research history by highlighting<br> a number of trends and best practices that can be identied in hindsight. It also enumerates a list of directions for future research in stream processing.</p></p>
             <p class="article-more-link">
                 <a href="/2017/09/14/Tutorial-Reflections-on-Almost-Two-Decades-of-Research-into-Stream-Processing/#more">Read More</a>
             </p>
@@ -644,7 +801,7 @@ a number of trends and best practices that can be identied in hindsight. It a
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/14/Tutorial-Reflections-on-Almost-Two-Decades-of-Research-into-Stream-Processing/" data-id="cj7ra4zqb000j9ztajmcd177b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/14/Tutorial-Reflections-on-Almost-Two-Decades-of-Research-into-Stream-Processing/" data-id="cj7smubxk000myjtasodatmib" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -722,136 +879,6 @@ a number of trends and best practices that can be identied in hindsight. It a
 
 
 
-    <article id="post-Continuous Queries over Data Streams" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/09/13/Continuous Queries over Data Streams/">Continuous Queries over Data Streams</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/09/13/Continuous Queries over Data Streams/">
-            <time datetime="2017-09-14T05:32:28.000Z" itemprop="datePublished">2017-09-13</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/paper-reading/">paper reading</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h1 id="continuous-queries-over-data-streams"><a class="markdownIt-Anchor" href="#continuous-queries-over-data-streams"></a> Continuous Queries over Data Streams</h1>
-<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract</h2>
-<p>In many recent applications, data may take the form of continuous data streams,   rather than  nite stored data sets.   Several aspects of data management need to be re- considered in the presence of data streams, offering a new research direction for the database community. In this pa- per we focus primarily on the problem of query process- ing, specically on how to dene and evaluate continuous queries over data streams.   We address semantic issues as well as efciency concerns. Our main contributions are threefold. First, we specify a general and exible architec- ture for query processing in the presence of data streams. Second, we use our basic architecture as a tool to clar- ify alternative semantics and processing techniques for continuous queries.   The architecture also captures most previous work on continuous queries and data streams, as well as related concepts such as triggers and materialized views. Finally, we map out research topics in the area of query processing over data streams, showing where pre- vious work is relevant and describing problems yet to be addressed.</p></p>
-            <p class="article-more-link">
-                <a href="/2017/09/13/Continuous Queries over Data Streams/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/" data-id="cj7ra4zq000049ztabqryyetz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jinxuan.github.io/2017/09/13/Continuous Queries over Data Streams/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-Exploring-big-volume-sensor-data-with-Vroom" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -889,10 +916,7 @@ a number of trends and best practices that can be identied in hindsight. It a
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h1 id="exploring-big-volume-sensor-data-with-vroom"><a class="markdownIt-Anchor" href="#exploring-big-volume-sensor-data-with-vroom"></a> Exploring big volume sensor data with Vroom</h1>
-<h2 id="comments"><a class="markdownIt-Anchor" href="#comments"></a> Comments:</h2>
-<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> ABSTRACT</h2>
-<p>State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of view as well as heavy computation to extract features from scenes. In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases. Vroom combines domain specic properties of AV datasets with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p></p>
+            <p><h1 id="Exploring-big-volume-sensor-data-with-Vroom"><a href="#Exploring-big-volume-sensor-data-with-Vroom" class="headerlink" title="Exploring big volume sensor data with Vroom"></a>Exploring big volume sensor data with Vroom</h1><h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments:"></a>Comments:</h2><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p> State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of view as well as heavy computation to extract features from scenes. In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases. Vroom combines domain specic properties of AV datasets with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p></p>
             <p class="article-more-link">
                 <a href="/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/#more">Read More</a>
             </p>
@@ -905,7 +929,7 @@ a number of trends and best practices that can be identied in hindsight. It a
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/" data-id="cj7ra4zq200069ztav1zqk0p8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/" data-id="cj7smubxc0009yjtaajgdbgkv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -984,7 +1008,7 @@ a number of trends and best practices that can be identied in hindsight. It a
 
 
     <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
 </section>
             

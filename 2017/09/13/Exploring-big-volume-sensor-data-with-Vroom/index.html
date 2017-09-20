@@ -5,17 +5,17 @@
     
     <title>Exploring big volume sensor data with Vroom | Jinxuan Wu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Exploring big volume sensor data with Vroom  Comments:  ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Un">
+    <meta name="description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurpr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Exploring big volume sensor data with Vroom">
 <meta property="og:url" content="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/index.html">
 <meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
-<meta property="og:description" content="Exploring big volume sensor data with Vroom  Comments:  ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Un">
+<meta property="og:description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurpr">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-14T06:14:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exploring big volume sensor data with Vroom">
-<meta name="twitter:description" content="Exploring big volume sensor data with Vroom  Comments:  ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Un">
+<meta name="twitter:description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurpr">
     
 
     
@@ -169,7 +169,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                12
+                13
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -253,32 +253,24 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="exploring-big-volume-sensor-data-with-vroom"><a class="markdownIt-Anchor" href="#exploring-big-volume-sensor-data-with-vroom"></a> Exploring big volume sensor data with Vroom</h1>
-<h2 id="comments"><a class="markdownIt-Anchor" href="#comments"></a> Comments:</h2>
-<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> ABSTRACT</h2>
-<p>State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of view as well as heavy computation to extract features from scenes. In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases. Vroom combines domain specic properties of AV datasets with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p>
+            <h1 id="Exploring-big-volume-sensor-data-with-Vroom"><a href="#Exploring-big-volume-sensor-data-with-Vroom" class="headerlink" title="Exploring big volume sensor data with Vroom"></a>Exploring big volume sensor data with Vroom</h1><h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments:"></a>Comments:</h2><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p> State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour. Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of view as well as heavy computation to extract features from scenes. In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases. Vroom combines domain specic properties of AV datasets with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p>
 <a id="more"></a>
-<p>##Introduction</p>
+<p> ##Introduction</p>
 <ul>
-<li>AV generate from high-resolution cameras, lidar and GPS at about 10 MBps.</li>
-</ul>
-<h4 id="queries"><a class="markdownIt-Anchor" href="#queries"></a> Queries:</h4>
-<ul>
-<li>Q1 Compute basic statistics on recent trips such as data<br>
-rates by sensor and location coverage.</li>
+<li><p>AV generate from high-resolution cameras, lidar and GPS at about 10 MBps.</p>
+<h4 id="Queries"><a href="#Queries" class="headerlink" title="Queries:"></a>Queries:</h4></li>
+<li>Q1 Compute basic statistics on recent trips such as data<br>rates by sensor and location coverage.</li>
 <li>Q2 [building 3D maps] Retrieve all forward-facing video frames of the corner of Vassar and Main St. in Cambridge, MA., ordered clockwise.</li>
 <li>Q3 [ preparing labeled training] Retrieve lidar and video readings for all cameras in the vehicle, for intervals when any vehicle camera frame shows a bicycle. Group the data by trip, and order it by timestamp within each trip.</li>
 <li>Q4 [ preparing labeled training] Retrieve all sensor readings in the minute leading up to an interesting event, such as a possible near miss. e.g., where a vehicle’s CAN bus records a sudden brake or sharp steer, group the readings by trip and order them by timestamp within each trip.</li>
 </ul>
-<h4 id="challenges"><a class="markdownIt-Anchor" href="#challenges"></a> Challenges</h4>
-<ul>
+<h4 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h4><ul>
 <li>Computational intensity of UDFs: such as deep learning based classification</li>
 <li>Big volumes: ad-hoc query on large historical data</li>
-<li>Many features of interest:</li>
+<li>Many features of interest: </li>
 <li>Interface and storage issues:</li>
 </ul>
-<h4 id="architecture"><a class="markdownIt-Anchor" href="#architecture"></a> Architecture</h4>
-<ul>
+<h4 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h4><ul>
 <li>Sophisticated feature precomputation and indexing:</li>
 <li>Synthesizing cheap predicates:</li>
 <li>Memoizing:</li>
@@ -286,22 +278,14 @@ rates by sensor and location coverage.</li>
 <li>Multi-query optimization:</li>
 <li>[to read] polystore data model</li>
 </ul>
-<h2 id="system"><a class="markdownIt-Anchor" href="#system"></a> System</h2>
-<h3 id="query-interface"><a class="markdownIt-Anchor" href="#query-interface"></a> Query Interface</h3>
-<p>Q1:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> sensor_id, sensor_type</div><div class="line"> <span class="keyword">sum</span>(byte_size(sensor_reading)) <span class="keyword">as</span> data_volume,</div><div class="line"> data_volume/trip_duration <span class="keyword">as</span> data_rate,</div><div class="line"> <span class="keyword">count</span>(*)/trip_duration <span class="keyword">as</span> frequency</div><div class="line"> <span class="keyword">from</span> raw_data</div><div class="line"> <span class="keyword">where</span> time.now - trip_start &lt; <span class="number">6</span> <span class="keyword">days</span></div><div class="line"> <span class="keyword">group</span> <span class="keyword">by</span> trip_id, sensor_id</div><div class="line"> <span class="keyword">order</span> <span class="keyword">by</span> trip_id, data_rate <span class="keyword">desc</span></div></pre></td></tr></table></figure>
-<p>Q2:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let vassar_and_main = lat_lon_height(42.3628,-71.0915,7) IN</div><div class="line"><span class="keyword">SELECT</span> sensor_reading</div><div class="line"><span class="keyword">FROM</span> raw_data</div><div class="line"><span class="keyword">WHERE</span> sensor_reading.type <span class="keyword">IN</span> (VideoFrame)</div><div class="line"> <span class="keyword">AND</span> let sensor_pose = pose_estimate(sensor_id, <span class="keyword">TIMESTAMP</span>) <span class="keyword">IN</span> distance(sensor_pose, vassar_and_main) &lt; <span class="number">20</span></div><div class="line"> <span class="keyword">AND</span> angle(sensor_pose.x_axis, line(sensor_pose, vassar_and_main)) &lt; <span class="number">30</span></div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> angle(line(sensor_pose, std.east), line(sensor_pose, vassar_and_main))</div></pre></td></tr></table></figure>
-<p>Q3:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let bike_segments =</div><div class="line"><span class="keyword">SELECT</span> trip_id, <span class="keyword">TIMESTAMP</span> - <span class="number">5</span> <span class="keyword">AS</span> t_start, <span class="keyword">TIMESTAMP</span> + <span class="number">5</span> <span class="keyword">AS</span> t_end</div><div class="line"><span class="keyword">FROM</span> raw_data</div><div class="line"><span class="keyword">WHERE</span> sensor_reading.type <span class="keyword">IN</span> (VideoFrame)</div><div class="line"> <span class="keyword">AND</span> bike_detection_udf(sensor_reading) &gt; <span class="number">0.9</span> <span class="keyword">IN</span></div><div class="line"> <span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">TIMESTAMP</span>, trip_id,</div><div class="line"> sensor_reading</div><div class="line"> <span class="keyword">FROM</span> raw_data,</div><div class="line"> bike_segments <span class="keyword">WHERE</span> sensor_reading.type (PointCloud, Video)</div><div class="line"> <span class="keyword">AND</span> raw_data.trip_id = bike_segments.trip_id</div><div class="line"> <span class="keyword">AND</span> raw_data.TIMESTAMP <span class="keyword">BETWEEN</span> (t_start,</div><div class="line"> t_end) <span class="keyword">AND</span></div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> trip_id, <span class="keyword">TIMESTAMP</span></div></pre></td></tr></table></figure>
-<h3 id="storage-engines"><a class="markdownIt-Anchor" href="#storage-engines"></a> Storage engines</h3>
-<p>Our demonstration prototype is implemented by combining a relational engine for metadata storage and file system based blob management.</p>
-<h3 id="query-processor"><a class="markdownIt-Anchor" href="#query-processor"></a> Query processor</h3>
-<ul>
+<h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2><h3 id="Query-Interface"><a href="#Query-Interface" class="headerlink" title="Query Interface"></a>Query Interface</h3><p>Q1:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> sensor_id, sensor_type</div><div class="line"> <span class="keyword">sum</span>(byte_size(sensor_reading)) <span class="keyword">as</span> data_volume,</div><div class="line"> data_volume/trip_duration <span class="keyword">as</span> data_rate,</div><div class="line"> <span class="keyword">count</span>(*)/trip_duration <span class="keyword">as</span> frequency</div><div class="line"> <span class="keyword">from</span> raw_data</div><div class="line"> <span class="keyword">where</span> time.now - trip_start &lt; <span class="number">6</span> <span class="keyword">days</span></div><div class="line"> <span class="keyword">group</span> <span class="keyword">by</span> trip_id, sensor_id</div><div class="line"> <span class="keyword">order</span> <span class="keyword">by</span> trip_id, data_rate <span class="keyword">desc</span></div></pre></td></tr></table></figure></p>
+<p>Q2:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let vassar_and_main = lat_lon_height(42.3628,-71.0915,7) IN</div><div class="line"><span class="keyword">SELECT</span> sensor_reading</div><div class="line"><span class="keyword">FROM</span> raw_data</div><div class="line"><span class="keyword">WHERE</span> sensor_reading.type <span class="keyword">IN</span> (VideoFrame)</div><div class="line"> <span class="keyword">AND</span> let sensor_pose = pose_estimate(sensor_id, <span class="keyword">TIMESTAMP</span>) <span class="keyword">IN</span> distance(sensor_pose, vassar_and_main) &lt; <span class="number">20</span></div><div class="line"> <span class="keyword">AND</span> angle(sensor_pose.x_axis, line(sensor_pose, vassar_and_main)) &lt; <span class="number">30</span></div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> angle(line(sensor_pose, std.east), line(sensor_pose, vassar_and_main))</div></pre></td></tr></table></figure></p>
+<p>Q3:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let bike_segments =</div><div class="line"><span class="keyword">SELECT</span> trip_id, <span class="keyword">TIMESTAMP</span> - <span class="number">5</span> <span class="keyword">AS</span> t_start, <span class="keyword">TIMESTAMP</span> + <span class="number">5</span> <span class="keyword">AS</span> t_end</div><div class="line"><span class="keyword">FROM</span> raw_data</div><div class="line"><span class="keyword">WHERE</span> sensor_reading.type <span class="keyword">IN</span> (VideoFrame)</div><div class="line"> <span class="keyword">AND</span> bike_detection_udf(sensor_reading) &gt; <span class="number">0.9</span> <span class="keyword">IN</span></div><div class="line"> <span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">TIMESTAMP</span>, trip_id,</div><div class="line"> sensor_reading</div><div class="line"> <span class="keyword">FROM</span> raw_data,</div><div class="line"> bike_segments <span class="keyword">WHERE</span> sensor_reading.type (PointCloud, Video)</div><div class="line"> <span class="keyword">AND</span> raw_data.trip_id = bike_segments.trip_id</div><div class="line"> <span class="keyword">AND</span> raw_data.TIMESTAMP <span class="keyword">BETWEEN</span> (t_start,</div><div class="line"> t_end) <span class="keyword">AND</span></div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> trip_id, <span class="keyword">TIMESTAMP</span></div></pre></td></tr></table></figure></p>
+<h3 id="Storage-engines"><a href="#Storage-engines" class="headerlink" title="Storage engines"></a>Storage engines</h3><p>Our demonstration prototype is implemented by combining a relational engine for metadata storage and file system based blob management.</p>
+<h3 id="Query-processor"><a href="#Query-processor" class="headerlink" title="Query processor"></a>Query processor</h3><ul>
 <li>For   Query   Q1,   a   per   trip   aggregate   triggers   checks   for existing   per-trip   memoized   computations.</li>
-<li>For Query  Q2  explicitly uses geometric builtins referring to sensor points of view,  geometric predicates involved and bound which parts   of   trip   trajectories   to   skip   completely   look   at.   We leverage existing trajectory indexing work for storage.</li>
+<li>For Query  Q2  explicitly uses geometric builtins referring to sensor points of view,  geometric predicates involved and bound which parts   of   trip   trajectories   to   skip   completely   look   at.   We leverage existing trajectory indexing work for storage.<h1 id="For-Query-q3"><a href="#For-Query-q3" class="headerlink" title="For Query q3:"></a>For Query q3:</h1></li>
 </ul>
-<h1 id="for-query-q3"><a class="markdownIt-Anchor" href="#for-query-q3"></a> For Query q3:</h1>
 
         
         </div>
@@ -312,7 +296,7 @@ rates by sensor and location coverage.</li>
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/" data-id="cj7ra4zq200069ztav1zqk0p8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring-big-volume-sensor-data-with-Vroom/" data-id="cj7smubxc0009yjtaajgdbgkv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -389,19 +373,19 @@ rates by sensor and location coverage.</li>
         
 <nav id="article-nav">
     
-        <a href="/2017/09/13/Continuous Queries over Data Streams/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/09/14/Tutorial-Reflections-on-Almost-Two-Decades-of-Research-into-Stream-Processing/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Continuous Queries over Data Streams
+                    Tutorial: Reflections on Almost Two Decades of Research into Stream Processing
                 
             </div>
         </a>
     
     
-        <a href="/2017/09/13/Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/09/13/Continuous Queries over Data Streams/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Geospatial Stream Query Processing using Microsoft SQL Server StreamInsight</div>
+            <div class="article-nav-title">Continuous Queries over Data Streams</div>
         </a>
     
 </nav>

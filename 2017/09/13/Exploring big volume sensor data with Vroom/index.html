@@ -5,17 +5,17 @@
     
     <title>Jinxuan Wu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Exploring big volume sensor data with Vroom  Comments:  ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.">
+    <meta name="description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsur">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jinxuan Wu&#39;s Blog">
 <meta property="og:url" content="http://jinxuan.github.io/2017/09/13/Exploring big volume sensor data with Vroom/index.html">
 <meta property="og:site_name" content="Jinxuan Wu&#39;s Blog">
-<meta property="og:description" content="Exploring big volume sensor data with Vroom  Comments:  ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.">
+<meta property="og:description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsur">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-14T06:24:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jinxuan Wu&#39;s Blog">
-<meta name="twitter:description" content="Exploring big volume sensor data with Vroom  Comments:  ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.">
+<meta name="twitter:description" content="Exploring big volume sensor data with VroomComments:ABSTRACT State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsur">
     
 
     
@@ -169,7 +169,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                12
+                13
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -223,32 +223,24 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="exploring-big-volume-sensor-data-with-vroom"><a class="markdownIt-Anchor" href="#exploring-big-volume-sensor-data-with-vroom"></a> Exploring big volume sensor data with Vroom</h1>
-<h2 id="comments"><a class="markdownIt-Anchor" href="#comments"></a> Comments:</h2>
-<h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> ABSTRACT</h2>
-<p>State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of   view   as   well   as   heavy   computation   to   extract   features from scenes.   In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases.  Vroom combines   domain   specic   properties   of   AV   datasets   with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p>
+            <h1 id="Exploring-big-volume-sensor-data-with-Vroom"><a href="#Exploring-big-volume-sensor-data-with-Vroom" class="headerlink" title="Exploring big volume sensor data with Vroom"></a>Exploring big volume sensor data with Vroom</h1><h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments:"></a>Comments:</h2><h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p> State of the art sensors within a single autonomous vehicle (AV) can produce video and LIDAR data at rates greater than 30 GB/hour.   Unsurprisingly, even small AV research teams can accumulate tens of terabytes of sensor data from multiple trips and multiple vehicles. AV practitioners would like to extract information about specic locations or specic situations for further study, but are often unable to. Queries over AV sensor data are dierent from generic analytics or spatial queries because they demand reasoning about elds of   view   as   well   as   heavy   computation   to   extract   features from scenes.   In this article and demo we present Vroom, a system for ad-hoc queries over AV sensor databases.  Vroom combines   domain   specic   properties   of   AV   datasets   with selective indexing and multi-query optimization to address challenges posed by AV sensor data.</p>
 <a id="more"></a>
-<p>##Introduction</p>
+<p> ##Introduction</p>
 <ul>
-<li>AV generate from high-resolution cameras, lidar and GPS at about  10 MBps.</li>
-</ul>
-<h4 id="queries"><a class="markdownIt-Anchor" href="#queries"></a> Queries:</h4>
-<ul>
-<li>Q1   Compute basic statistics on recent trips such as data<br>
-rates by sensor and location coverage.</li>
+<li><p>AV generate from high-resolution cameras, lidar and GPS at about  10 MBps.</p>
+<h4 id="Queries"><a href="#Queries" class="headerlink" title="Queries:"></a>Queries:</h4></li>
+<li>Q1   Compute basic statistics on recent trips such as data<br> rates by sensor and location coverage.</li>
 <li>Q2 [building   3D maps] Retrieve all forward-facing video frames of the corner of Vassar and Main St.   in Cambridge, MA., ordered clockwise.</li>
 <li>Q3 [ preparing labeled training]   Retrieve lidar and video readings for all cameras in the vehicle,   for  intervals  when  any  vehicle  camera  frame shows a bicycle.   Group the data by trip, and order it by timestamp within each trip.</li>
 <li>Q4 [ preparing labeled training]   Retrieve all sensor readings in the minute leading up to an interesting event, such as a possible near miss. e.g., where a vehicle’s CAN bus records a sudden brake or sharp steer, group the readings by trip and order them by timestamp within each trip.</li>
 </ul>
-<h4 id="challenges"><a class="markdownIt-Anchor" href="#challenges"></a> Challenges</h4>
-<ul>
+<h4 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h4><ul>
 <li>Computational intensity of UDFs: such as deep learning based classification</li>
 <li>Big   volumes: ad-hoc query on large historical data</li>
-<li>Many   features   of   interest:</li>
+<li>Many   features   of   interest:  </li>
 <li>Interface and storage issues:</li>
 </ul>
-<h4 id="architecture"><a class="markdownIt-Anchor" href="#architecture"></a> Architecture</h4>
-<ul>
+<h4 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h4><ul>
 <li>Sophisticated feature precomputation and indexing:</li>
 <li>Synthesizing   cheap   predicates:</li>
 <li>Memoizing:</li>
@@ -256,8 +248,7 @@ rates by sensor and location coverage.</li>
 <li>Multi-query   optimization:</li>
 <li>[to read] polystore data model</li>
 </ul>
-<h2 id="system"><a class="markdownIt-Anchor" href="#system"></a> System</h2>
-
+<h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2>
         
         </div>
         <footer class="article-footer">
@@ -267,7 +258,7 @@ rates by sensor and location coverage.</li>
 
 </div>
 
-    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring big volume sensor data with Vroom/" data-id="cj7ra4zq100059zta6y6nsunp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jinxuan.github.io/2017/09/13/Exploring big volume sensor data with Vroom/" data-id="cj7smubx90007yjta4tq2xsfw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
